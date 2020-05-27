@@ -130,6 +130,7 @@
                                                         <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" class="btn btn-primary">Ver Gato</a>
                                                         </div>
                                                     </div>
+
                                                 </a>
                                             </div>
                                         @endif
