@@ -14,7 +14,7 @@
     @include('includes.header')
 
             <div class="container">
-                <h2 class="text-center">Añadir Gato</h2>
+                <h2 class="text-center mt-3 mb-3 text-info">Añadir un gato</h2>
                 <form action="" method="POST">
                     <input type="hidden" name="_method" value="PUT">
                     {{csrf_field()}}
@@ -45,10 +45,23 @@
                             <input type="text" class="form-control" id="direccion" name="direccion">
                         </div>
                         <div class="form-group col-md-4">
+                            <label>Localidad:</label>
+                            <input type="text" class="form-control" id="localidad" name="localidad">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Provincia:</label>
+                            <input type="text" class="form-control" id="provincia" name="provincia">
+                        </div>
+
+                        <div class="form-group col-md-4">
                             <label>Imagen:</label>
                             <input type="file" class="form-control" id="imagen" name="imagen">
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="estado">Estado:</label><br>
@@ -63,6 +76,18 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="estado" id="adopcion" value="adopcion" >
                                 <label class="form-check-label" for="adopcion">Adopcion</label><br>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>Castrado:</label><br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="castrado" id="castradoSi" value="castradoSi">
+                                <label class="form-check-label" for="perdido">Sí</label> <br>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="castrado" id="castradoNo" value="castradoNo">
+                                <label class="form-check-label" for="encontrado">No</label><br>
                             </div>
                         </div>
                     </div>

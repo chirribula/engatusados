@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 Auth::routes();                                                      /*cuando instalas artisan auth*/
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', 'GatoController@index');
 
 Route::group(['prefix'=>'Engatusados'], function(){
@@ -25,8 +27,13 @@ Route::group(['prefix'=>'Engatusados'], function(){
     Route::get('perdidos','GatoController@mostrarPerdidos');
     Route::get('encontrados','GatoController@mostrarEncontrados');
     Route::get('adopcion','GatoController@mostrarAdopcion');
-    Route::get('insertarGato','GatoController@insertarGato');
+
+
+
     Route::get('gatos','GatoController@verGatos');
+
+
+    Route::get('insertarGato','GatoController@insertarGato');
 
 });
 
