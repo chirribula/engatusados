@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Gato;
+use App\Gato;                               //importo el modelo de Gato
 use Illuminate\Http\Request;
-                                  //importo el modelo de Gato
+
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;     //tres clases importadas para trabajar con imágenes
+use Illuminate\Support\Facades\File;
+
 
 class GatoController extends Controller
 {

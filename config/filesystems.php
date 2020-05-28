@@ -64,6 +64,13 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'gatos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/gatos'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
     ],
 
 ];

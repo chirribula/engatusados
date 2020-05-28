@@ -15,7 +15,7 @@
 
             <div class="container">
                 <h2 class="text-center mt-3 mb-3 text-info">Añadir un gato</h2>
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     {{csrf_field()}}
 
