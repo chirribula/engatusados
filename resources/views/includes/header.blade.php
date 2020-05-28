@@ -6,7 +6,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{action('GatoController@index')}}">Inicio</a>
           </li>
-          <li class="nav-item">
+      <!--    <li class="nav-item">
             <a class="nav-link" href="{{action('GatoController@mostrarPerdidos')}}">Perdidos</a>
           </li>
           <li class="nav-item">
@@ -15,6 +15,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{action('GatoController@mostrarAdopcion')}}">Adopción</a>
           </li>
+        -->
           <li class="nav-item">
             <a class="nav-link" href="{{action('GatoController@verGatos')}}">Gatos</a>
           </li>
