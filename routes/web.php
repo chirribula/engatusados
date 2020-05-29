@@ -30,7 +30,7 @@ Route::group(['prefix'=>'Engatusados'], function(){
 
     Route::get('gatos','GatoController@verGatos');
 
-    Route::get('verUnGato','GatoController@getShow');
+    Route::get('verUnGato/{id}','GatoController@getShow')->where('id','[0-9]+');
 
     Route::get('insertarGato','GatoController@insertarGato');
 
