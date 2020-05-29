@@ -13,10 +13,9 @@
 <body>
     @include('includes.header')
 
-            <div class="container">
+            <div class="container mb-5">
                 <h2 class="text-center mt-3 mb-3 text-info">Añadir un gato</h2>
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_method" value="PUT">
+                <form action="{{action('GatoController@save')}}" method="POST" enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
 
                     <div class="form-row">
@@ -37,8 +36,11 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label>Sexo:</label>
-                            <input type="text" class="form-control" id="sexo" name="sexo">
+                            <label for="sexo">Sexo:</label>
+                            <select class="form-control" id="sexo" name="sexo">
+                              <option value="macho">Macho</option>
+                              <option value="hembra">Hembra</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Direccion:</label>
@@ -60,33 +62,31 @@
                             <label>Imagen:</label>
                             <input type="file" class="form-control" id="imagen" name="imagen">
                         </div>
+
+                        <div class="form-group col-md-4">
+                            <label>Colores:</label>
+                            <input type="text" class="form-control" id="colores" name="colores">
+                        </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="estado">Estado:</label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="estado" id="perdido" value="perdido">
-                                <label class="form-check-label" for="perdido">Perdido</label> <br>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="estado" id="encontrado" value="encontrado">
-                                <label class="form-check-label" for="encontrado">Encontrado</label><br>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="estado" id="adopcion" value="adopcion" >
-                                <label class="form-check-label" for="adopcion">Adopcion</label><br>
-                            </div>
+                            <label for="estado">Estado:</label>
+                            <select class="form-control" id="estado" name="estado">
+                              <option>Perdido</option>
+                              <option>Encontrado</option>
+                              <option>Adopción</option>
+                            </select>
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Castrado:</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="castrado" id="castradoSi" value="castradoSi">
+                                <input class="form-check-input" type="radio" name="castrado" id="castradoSi" value="si">
                                 <label class="form-check-label" for="perdido">Sí</label> <br>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="castrado" id="castradoNo" value="castradoNo">
+                                <input class="form-check-input" type="radio" name="castrado" id="castradoNo" value="no">
                                 <label class="form-check-label" for="encontrado">No</label><br>
                             </div>
                         </div>

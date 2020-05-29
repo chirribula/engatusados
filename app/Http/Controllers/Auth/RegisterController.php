@@ -50,14 +50,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'rol' => 'user',
-            'name' => ['required', 'string', 'max:255'],
-            'apellidos' => ['required', 'string', 'max:255'],
-            'usuario' => ['required', 'string', 'max:255', 'unique:users'],
-            'localidad' => ['required', 'string', 'max:255'],
-            'provincia' => ['required', 'string', 'max:255'],
-            'telefono' => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:100'],
+            'apellidos' => ['required', 'string', 'max:100'],
+            'usuario' => ['required', 'string', 'max:100', 'unique:users'],
+            'direccion' => ['required', 'string', 'max:100'],
+            'localidad' => ['required', 'string', 'max:100'],
+            'provincia' => ['required', 'string', 'max:100'],
+            'telefono' => ['required', 'string', 'max:100'],
             'fecha' => ['required', 'date'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:30', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -72,9 +73,10 @@ class RegisterController extends Controller
     {
         return User::create([
             'rol' => 'user',
-            'name' => $data['name'],
+            'nombre' => $data['nombre'],
             'apellidos' => $data['apellidos'],
             'usuario' => $data['usuario'],
+            'direccion' => $data['direccion'],
             'localidad' => $data['localidad'],
             'provincia' => $data['provincia'],
             'telefono' => $data['telefono'],

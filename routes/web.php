@@ -35,6 +35,8 @@ Route::group(['prefix'=>'Engatusados'], function(){
 
     Route::get('insertarGato','GatoController@insertarGato');
 
+    Route::post('insertarGato/Submit','GatoController@save');
+
 });
 
 

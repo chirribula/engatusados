@@ -17,17 +17,14 @@ class CreateGatosTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('usuarioId');                //clave foránea de la tabla usuario
             $table->string('nombre',100);
+            $table->string('edad',100);
             $table->string('raza',100);
             $table->string('sexo',100);
             $table->string('colores',200);
             $table->string('descripcion',500);
-            $table->string('edad',100);
-            $table->string('imagen',100);
-            $table->date('fecha');
-            $table->boolean('castrado')->default(0);               //por defecto no está castrado
-            $table->boolean('perdido')->default(0);               //por defecto no se ha perdido
-            $table->boolean('encontrado')->default(0);           //por defecto no ha sido encontrado
-            $table->boolean('adopcion')->default(0);            //por defecto no está en adopción
+            $table->string('imagen',500);
+            $table->string('castrado',100);               //por defecto no está castrado
+            $table->string('estado',100);
             $table->string('direccion',100);
             $table->string('localidad',100);
             $table->string('provincia',100);

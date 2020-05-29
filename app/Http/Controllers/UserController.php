@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;                            //importo el modelo de User
+use App\User;                               //importo el modelo de User
 use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;

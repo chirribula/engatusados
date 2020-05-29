@@ -12,7 +12,7 @@
 </head>
 <body>
     @include('includes.header')
-    <div class="container-fluid">
+    <div class="container-fluid"  style="height: 800px">
         <div class="row">
             <div class="col-12">
 
@@ -45,9 +45,8 @@
                                 </div>
                                 <div class="row">
                                     @foreach ($gatos as $gato)
-                                         @if($gatos->perdido==1)
+                                         @if($gato->estado=='Encontrado')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
-                                                <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">  <!--si pongo el enlace aquí pulsando en la imagen redirige-->
                                                     <div class="card" >
 
                                                         <img class="card-img-top" src="{{$gato->imagen}}" alt="poster de la pelicula" width="100%" height="350px;"  style="opacity:1;"  >
@@ -55,7 +54,6 @@
 
                                                         <div class="card-body">
                                                         <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                        <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" class="btn btn-primary">Ver Gato</a>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -81,9 +79,8 @@
                                 </div>
                                 <div class="row">
                                     @foreach ($gatos as $gato)
-                                         @if($gatos->perdido==1)
+                                         @if($gato->estado=='Perdido')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
-                                                <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">  <!--si pongo el enlace aquí pulsando en la imagen redirige-->
                                                     <div class="card" >
 
                                                         <img class="card-img-top" src="{{$gato->imagen}}" alt="poster de la pelicula" width="100%" height="350px;"  style="opacity:1;"  >
@@ -91,7 +88,6 @@
 
                                                         <div class="card-body">
                                                         <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                        <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" class="btn btn-primary">Ver Gato</a>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -117,9 +113,8 @@
                                 </div>
                                 <div class="row">
                                     @foreach ($gatos as $gato)
-                                         @if($gatos->perdido==1)
+                                         @if($gato->estado=='Adopcion')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
-                                                <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">  <!--si pongo el enlace aquí pulsando en la imagen redirige-->
                                                     <div class="card" >
 
                                                         <img class="card-img-top" src="{{$gato->imagen}}" alt="poster de la pelicula" width="100%" height="350px;"  style="opacity:1;"  >
@@ -127,7 +122,6 @@
 
                                                         <div class="card-body">
                                                         <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                        <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" class="btn btn-primary">Ver Gato</a>
                                                         </div>
                                                     </div>
 
