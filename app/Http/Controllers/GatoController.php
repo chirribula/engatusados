@@ -53,6 +53,11 @@ class GatoController extends Controller
         return view('Gato.gatos',['gatos'=>$gatos]);
     }
 
+    public function getImage($filename){
+        $file = Storage::disk('gatos')->get($filename);
+        return new Response($file,200);
+    }
+
 
     public function save(Request $request){
         $gato = new Gato();

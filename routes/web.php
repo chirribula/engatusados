@@ -28,12 +28,10 @@ Route::group(['prefix'=>'Engatusados'], function(){
     Route::get('encontrados','GatoController@mostrarEncontrados');
     Route::get('adopcion','GatoController@mostrarAdopcion');
 
-
-
     Route::get('gatos','GatoController@verGatos');
 
-
     Route::get('insertarGato','GatoController@insertarGato');
+    Route::get('file/{filename}','GatoController@getImage');
 
     Route::post('insertarGato/Submit','GatoController@save');
 

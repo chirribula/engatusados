@@ -49,7 +49,7 @@
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
 
-                                                        <img class="card-img-top" src="{{$gato->imagen}}" alt="poster de la pelicula" width="100%" height="350px;"  style="opacity:1;"  >
+                                                    <img class="card-img-top" src="{{action('GatoController@getImage()', ['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
 
 
                                                         <div class="card-body">
@@ -83,7 +83,7 @@
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
 
-                                                        <img class="card-img-top" src="{{$gato->imagen}}" alt="poster de la pelicula" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage()', ['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
 
 
                                                         <div class="card-body">
@@ -117,7 +117,7 @@
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
 
-                                                        <img class="card-img-top" src="{{$gato->imagen}}" alt="poster de la pelicula" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage()', ['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
 
 
                                                         <div class="card-body">
