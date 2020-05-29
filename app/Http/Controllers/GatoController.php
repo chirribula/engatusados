@@ -41,7 +41,7 @@ class GatoController extends Controller
 
     public function getShow($id){
         $gato=Gato::findOrFail($id);
-        return view('Gato.show',['gato'=>$gato]);
+        return view('Gato.verUnGato',['gato'=>$gato]);
     }
 
     public function insertarGato(){

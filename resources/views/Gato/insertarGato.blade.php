@@ -21,58 +21,58 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="nombre">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre">
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="edad">Edad:</label>
-                            <input type="text" class="form-control" id="edad" name="edad">
+                            <input type="text" class="form-control" id="edad" name="edad" required>
                         </div>
 
                         <div class="form-group col-md-4">
                             <label for="raza">Raza:</label>
-                            <input type="text" class="form-control" id="raza" name="raza">
+                            <input type="text" class="form-control" id="raza" name="raza" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="sexo">Sexo:</label>
-                            <select class="form-control" id="sexo" name="sexo">
+                            <select class="form-control" id="sexo" name="sexo" required>
                               <option value="macho">Macho</option>
                               <option value="hembra">Hembra</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Direccion:</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion">
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Localidad:</label>
-                            <input type="text" class="form-control" id="localidad" name="localidad">
+                            <input type="text" class="form-control" id="localidad" name="localidad" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Provincia:</label>
-                            <input type="text" class="form-control" id="provincia" name="provincia">
+                            <input type="text" class="form-control" id="provincia" name="provincia" required>
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Imagen:</label>
-                            <input type="file" class="form-control" id="imagen" name="imagen">
+                            <input type="file" class="form-control" id="imagen" name="imagen" required>
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Colores:</label>
-                            <input type="text" class="form-control" id="colores" name="colores">
+                            <input type="text" class="form-control" id="colores" name="colores" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="estado">Estado:</label>
-                            <select class="form-control" id="estado" name="estado">
+                            <select class="form-control" id="estado" name="estado" required>
                               <option>Perdido</option>
                               <option>Encontrado</option>
                               <option>Adopción</option>
@@ -82,7 +82,7 @@
                         <div class="form-group col-md-4">
                             <label>Castrado:</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="castrado" id="castradoSi" value="si">
+                                <input class="form-check-input" type="radio" name="castrado" id="castradoSi" value="si" checked>
                                 <label class="form-check-label" for="perdido">Sí</label> <br>
                             </div>
                             <div class="form-check form-check-inline">
@@ -95,7 +95,7 @@
 
                     <div class="form-group">
                         <label for="sinopsis">Descripcion:</label>
-                        <textarea class="form-control" rows="3" type="text" id="descripcion" name="descripcion"></textarea>
+                        <textarea class="form-control" rows="3" type="text" id="descripcion" name="descripcion" required></textarea>
                     </div>
                     <button type="submit" name="submit" class="btn btn-info">Añadir Gato</button>
                 </form>

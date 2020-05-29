@@ -20,18 +20,22 @@
             <a class="nav-link" href="{{action('GatoController@verGatos')}}">Gatos</a>
           </li>
 
-
-
         </ul>
 
         <ul class="navbar-nav navbar-right">
             <li class="nav-item">
-                <a href="{{ route('home') }}"  style="display:inline">
+                @if(Route::has('login'))
+                    @auth
+                        <a class="nav-link" href=""> {{auth()->user()->usuario }}</a>         <!--muestra el nombre de usuario si no está logueado-->
+                @else
+                        <a href="{{ route('home') }}"  style="display:inline">
 
-                    <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
-                        Loguearse
-                    </button>
-                </a>
+                            <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
+                                Loguearse
+                            </button>
+                        </a>
+                    @endauth
+                @endif
             </li>
             <li class="nav-item">
                 <form action="{{ url('/logout') }}" method="POST" style="display:inline">

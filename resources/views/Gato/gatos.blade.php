@@ -12,9 +12,9 @@
 </head>
 <body>
     @include('includes.header')
-    <div class="container-fluid"  style="height: 800px">
-        <div class="row">
-            <div class="col-12">
+    <div class="container-fluid mb-5"  style="height: 800px">
+        <div class="row mt-3">
+            <div class="col-12 ">
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -26,10 +26,21 @@
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#adopcion" role="tab" aria-controls="adopcion" aria-selected="false">En adopción</a>
                     </li>
+                    <li>
+                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning ">Insertar Gato</button></a>
+                    </li>
                 </ul>
 
 
-                <div class="tab-content" id="myTabContent">
+
+                @if (session('status'))
+                    <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+                @endif
+
+
+                <!-- Encontrados -->
+
+                <div class="tab-content mb-5 " id="myTabContent">
 
                     <div class="tab-pane fade show active" id="encontrados" role="tabpanel" aria-labelledby="encontrados-tab">
                         <div class="row">
@@ -37,33 +48,35 @@
 
                                 <h3 class="text-center m-4 ">GATOS ENCONTRADOS</h3>
 
-                                @if (session('status'))
-                                    <p style="color:blue; font-size:30px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
-                                @endif
                                 <div class="row">
-                                    <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-info">Insertar Gato</button></a>
+                                    <div class="col float-right mr-4">
+                                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning float-right">Insertar Gato</button></a>
+                                    </div>
                                 </div>
+
                                 <div class="row">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Encontrado')
-                                            <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
-                                                    <div class="card" >
-
-                                                    <img class="card-img-top" src="{{action('GatoController@getImage()', ['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
-
-
-                                                        <div class="card-body">
-                                                        <h5 class="card-title ">{{$gato->nombre}}</h5>
+                                            <a href="{{ action('Gatocontroller@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
+                                                <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
+                                                        <div class="card" >
+                                                            <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                            <div class="card-body">
+                                                                <h5 class="card-title ">{{$gato->nombre}}</h5>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                    </a>
+                                                </div>
+                                            </a>
                                         @endif
                                      @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+                     <!-- Perdidos -->
 
                     <div class="tab-pane fade" id="perdidos" role="tabpanel" aria-labelledby="perdidos-tab">
                         <div class="row">
@@ -71,19 +84,19 @@
 
                                 <h3 class="text-center m-4 ">GATOS PERDIDOS</h3>
 
-                                @if (session('status'))
-                                    <p style="color:blue; font-size:30px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
-                                @endif
                                 <div class="row">
-                                    <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-info">Insertar Gato</button></a>
+                                    <div class="col float-right mr-4">
+                                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning float-right">Insertar Gato</button></a>
+                                    </div>
                                 </div>
+
                                 <div class="row">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Perdido')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
 
-                                                        <img class="card-img-top" src="{{action('GatoController@getImage()', ['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
 
 
                                                         <div class="card-body">
@@ -99,25 +112,27 @@
                         </div>
                     </div>
 
+                     <!-- Encontrados -->
+
                     <div class="tab-pane fade" id="adopcion" role="tabpanel" aria-labelledby="adopcion-tab">
                         <div class="row">
                             <div class="col-md-12">
 
                                 <h3 class="text-center m-4 ">GATOS EN ADOPCIÓN</h3>
 
-                                @if (session('status'))
-                                    <p style="color:blue; font-size:30px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
-                                @endif
                                 <div class="row">
-                                    <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-info">Insertar Gato</button></a>
+                                    <div class="col float-right mr-4">
+                                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning float-right">Insertar Gato</button></a>
+                                    </div>
                                 </div>
+
                                 <div class="row">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Adopcion')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
 
-                                                        <img class="card-img-top" src="{{action('GatoController@getImage()', ['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
 
 
                                                         <div class="card-body">
