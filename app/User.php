@@ -19,6 +19,13 @@ class User extends Authenticatable
         'rol', 'nombre', 'apellidos', 'usuario', 'direccion', 'localidad', 'provincia', 'telefono', 'fecha', 'email', 'password',
     ];
 
+    //Relación uno a muchos
+    public function gatos(){
+        return $this->hasMany('App\Gatos');
+    }
+
+
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 ">GATOS ENCONTRADOS</h3>
+                                <h3 class="text-center m-4  mt-5 mb-5">GATOS ENCONTRADOS</h3>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -64,6 +64,14 @@
                                             </a>
                                         @endif
                                      @endforeach
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-5"></div>
+                                    <div class="col-2 ml-5 mt-5 text-center">
+                                         <div class="clearFix">{{$gatos->links()}}</div>
+                                    </div>
+                                    <div class="col-5"></div>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +84,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 ">GATOS PERDIDOS</h3>
+                                <h3 class="text-center m-4 mt-5 mb-5">GATOS PERDIDOS</h3>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -96,6 +104,13 @@
                                         @endif
                                      @endforeach
                                 </div>
+                                <div class="row">
+                                    <div class="col-5"></div>
+                                    <div class="col-2 ml-5 mt-5 text-center">
+                                         <div class="clearFix">{{$gatos->links()}}</div>
+                                    </div>
+                                    <div class="col-5"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,7 +121,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 ">GATOS EN ADOPCIÓN</h3>
+                                <h3 class="text-center m-4 mt-5 mb-5">GATOS EN ADOPCIÓN</h3>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -127,6 +142,14 @@
                                         @endif
                                      @endforeach
                                 </div>
+                                <div class="row">
+                                    <div class="col-5"></div>
+                                    <div class="col-2 ml-5 mt-5 text-center">
+                                         <div class="clearFix">{{$gatos->links()}}</div>
+                                    </div>
+                                    <div class="col-5"></div>
+                                </div>
+
                             </div>
                         </div>
                         </div>
