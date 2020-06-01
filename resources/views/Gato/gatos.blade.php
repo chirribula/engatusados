@@ -8,7 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Gatos - Engatusados</title>
+    <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
+    <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
 </head>
 <body>
     @include('includes.header')
@@ -89,6 +91,7 @@
                                 <div class="row">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Perdido')
+                                         <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
 
@@ -101,6 +104,7 @@
                                                     </div>
                                                 </a>
                                             </div>
+                                        </a>
                                         @endif
                                      @endforeach
                                 </div>
@@ -127,6 +131,7 @@
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Adopcion')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
+                                                <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                                     <div class="card" >
 
                                                         <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >

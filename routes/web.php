@@ -18,9 +18,11 @@ Route::get('/', function () {
 
 Auth::routes();                                                      /*cuando instalas artisan auth*/
 
+Route::get('/', 'GatoController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'GatoController@index');
+
 
 Route::group(['prefix'=>'Engatusados'], function(){
 
@@ -34,16 +36,18 @@ Route::group(['prefix'=>'Engatusados'], function(){
 
     Route::get('insertarGato','GatoController@insertarGato');
 
-    Route::get('gatos/{imagen}','GatoController@getImage');           ///no funciona
+    Route::get('gatos/{imagen}','GatoController@getImage');
 
     Route::post('insertarGato/Submit','GatoController@save');
 
 });
 
 
+Route::group(['prefix'=>'Engatusados/Usuario'], function(){
 
+    Route::get('verUsuario/{id}','UserController@verUsuario')->where('id','[0-9]+');
 
-
+});
 
 
 ?>

@@ -8,6 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>ver un gato - Engatusados</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora|Solway&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
 </head>
 <body>
@@ -40,6 +43,36 @@
                    @endif
 
                 </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col mt-5">
+                    <div id="contenido" class="contacto">
+
+                        <div id="map" style="width:870px; height: 600px;"></div>
+
+                         <script>
+                            var map;
+                            function initMap() {
+                              map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: 36.51296812497293,lng: -6.2748654961966395},
+                                zoom: 18
+                              });
+                              var marker=new google.maps.Marker({
+                                  position: {lat: 36.51296812497293,lng: -6.2748654961966395},
+                                  map: map,
+                                  title: 'localización del gato',
+                                  animation:google.maps.Animation.BOUNCE
+                            });
+                            }
+                          </script>
+
+                          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFbv4HfweEb0e4gW-WKH3ANmc_eQZwvVM&callback=initMap"async defer></script>
+
+                      </div>
+                </div>
+
 
             </div>
 

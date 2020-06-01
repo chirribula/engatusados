@@ -7,40 +7,44 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>ENGATUSADOS</title>
-    <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
+    <title>ver usuario - Engatusados</title>
     <link href="https://fonts.googleapis.com/css?family=Lora|Solway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
+    <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
 </head>
 <body>
-
     @include('includes.header')
-        <div class="container-fluid">
-            <div class="row mt-5">
-                <div class="col-1"></div>
-                <div class="col-5 mt-5">
-                    <h2>¿Qué es engatusados? </h2>
-                    <p class="mt-5">Engatusados es una web pensada y creada por una amante de los gatos, para intentar ayudar a
-                        estos adorables animales por si se pierden, se encuentran o simplemente quieres adoptar.
-                    </p>
-                    <p class="mt-5">Engatusados es una web pensada y creada por una amante de los gatos, para intentar ayudar a
-                        estos adorables animales por si se pierden, se encuentran o simplemente quieres adoptar.
-                    </p>
+        <div class="container-fluid" >
+
+
+            <div class="row">
+
+               <div class="col-sm-6 mt-4">
+
+                    <img src="" alt="" width="700px;"  style="opacity:1"  >
 
                 </div>
 
-                <div class="col-6" >
+                <div class="col-sm-6 p-3">
+                    <h1 class="pb-5"> {{$usuario->nombre}}</h1>
+                    <p>{{$usuario->apellidos}}</p>
+                    <p>{{$usuario->telefono}}</p>
+                    <p>{{$usuario->direccion}}</p>
+                    <p>{{$usuario->localidad}}</p>
 
-                    <img src="img/gatoPortada.jpg" width="1200px" alt="Fruteria" class="img-fluid rounded mx-auto d-block">
+
 
                 </div>
-
 
             </div>
+
+
+
+
+
+
         </div>
-
     @include('includes.footer')
-
 </body>
 </html>
