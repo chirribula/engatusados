@@ -34,7 +34,7 @@ Route::group(['prefix'=>'Engatusados'], function(){
 
     Route::get('insertarGato','GatoController@insertarGato');
 
-    Route::get('gatos/imagen','GatoController@getImage');           ///no funciona
+    Route::get('gatos/{imagen}','GatoController@getImage');           ///no funciona
 
     Route::post('insertarGato/Submit','GatoController@save');
 

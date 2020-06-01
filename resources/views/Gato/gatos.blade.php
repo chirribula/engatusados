@@ -49,18 +49,12 @@
                                 <h3 class="text-center m-4 ">GATOS ENCONTRADOS</h3>
 
                                 <div class="row">
-                                    <div class="col float-right mr-4">
-                                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning float-right">Insertar Gato</button></a>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Encontrado')
-                                            <a href="{{ action('Gatocontroller@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
+                                            <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                                 <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                         <div class="card" >
-                                                            <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                            <img class="card-img-top" src="{{action('GatoController@getImage',['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
                                                             <div class="card-body">
                                                                 <h5 class="card-title ">{{$gato->nombre}}</h5>
                                                             </div>
@@ -83,12 +77,6 @@
                             <div class="col-md-12">
 
                                 <h3 class="text-center m-4 ">GATOS PERDIDOS</h3>
-
-                                <div class="row">
-                                    <div class="col float-right mr-4">
-                                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning float-right">Insertar Gato</button></a>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -119,12 +107,6 @@
                             <div class="col-md-12">
 
                                 <h3 class="text-center m-4 ">GATOS EN ADOPCIÓN</h3>
-
-                                <div class="row">
-                                    <div class="col float-right mr-4">
-                                        <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning float-right">Insertar Gato</button></a>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)

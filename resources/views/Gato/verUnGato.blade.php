@@ -19,7 +19,7 @@
 
                <div class="col-sm-6 mt-4">
 
-                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="poster de la pelicula" width="350px;"  style="opacity:1"  >
+                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="poster de la pelicula" width="700px;"  style="opacity:1"  >
 
                 </div>
 
@@ -34,7 +34,7 @@
                         <p style="color:red;font-weight:bolder; font-size:30px;">Perdido</p>
 
                    @elseif($gato->estado=="Encontrado")
-                        <p style="color:green; font-weight:bolder; font-size:30px;">Disponible</p>
+                        <p style="color:green; font-weight:bolder; font-size:30px;">Encontrado</p>
                     @elseif($gato->estado=="Adopcion")
                         <p style="color:blue; font-weight:bolder; font-size:30px;">Adopcion</p>
                    @endif
