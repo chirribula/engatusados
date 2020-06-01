@@ -20,7 +20,7 @@ Auth::routes();                                                      /*cuando in
 
 Route::get('/', 'GatoController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'GatoController@index')->name('home');
 
 
 
@@ -40,12 +40,17 @@ Route::group(['prefix'=>'Engatusados'], function(){
 
     Route::post('insertarGato/Submit','GatoController@save');
 
+    Route::get('editarGato/{id}','GatoController@editarGato')->where('id','[0-9]+');
+    Route::post('editarGato/submit/{id}','GatoController@updateGato')->where('id','[0-9]+');
+
 });
 
 
 Route::group(['prefix'=>'Engatusados/Usuario'], function(){
 
     Route::get('verUsuario/{id}','UserController@verUsuario')->where('id','[0-9]+');
+    Route::get('editarUsuario/{id}','UserController@edit')->where('id','[0-9]+');
+    Route::put('editar/submit/{id}','UserController@update')->where('id','[0-9]+');
 
 });
 

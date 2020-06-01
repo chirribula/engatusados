@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
     <link href="https://fonts.googleapis.com/css?family=Lora|Solway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
+    <link rel="icon" href="{!! url('img/IconoGato2.png') !!}">
 </head>
 <body>
 
     @include('includes.header')
         <div class="container-fluid">
             <div class="row mt-5">
-                <div class="col-1"></div>
-                <div class="col-5 mt-5">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 mt-5">
                     <h2>¿Qué es engatusados? </h2>
                     <p class="mt-5">Engatusados es una web pensada y creada por una amante de los gatos, para intentar ayudar a
                         estos adorables animales por si se pierden, se encuentran o simplemente quieres adoptar.
@@ -30,7 +30,7 @@
 
                 </div>
 
-                <div class="col-6" >
+                <div class="col-sm-6" >
 
                     <img src="img/gatoPortada.jpg" width="1200px" alt="Fruteria" class="img-fluid rounded mx-auto d-block">
 

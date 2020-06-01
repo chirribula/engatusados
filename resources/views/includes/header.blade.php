@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{action('GatoController@index')}}"><i class="fas fa-cat"></i>&nbsp; Inicio</a>
+            <a class="nav-link text-warning" href="{{action('GatoController@index')}}"><i class="fas fa-cat"></i>&nbsp; Inicio</a>
           </li>
       <!--    <li class="nav-item">
             <a class="nav-link" href="{{action('GatoController@mostrarPerdidos')}}">Perdidos</a>
@@ -26,7 +26,7 @@
             <li class="nav-item">
                 @if(Route::has('login'))
                     @auth
-                        <a class="nav-link" href="{{action('UserController@verUsuario', ['id' => auth()->user()->id])}}"> {{auth()->user()->usuario }}</a>         <!--muestra el nombre de usuario si no está logueado-->
+                        <a class="nav-link text-warning" href="{{action('UserController@verUsuario', ['id' => auth()->user()->id])}}"> {{auth()->user()->usuario }}</a>         <!--muestra el nombre de usuario si no está logueado-->
                 @else
                         <a href="{{ route('home') }}"  style="display:inline">
 

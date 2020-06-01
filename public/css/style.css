@@ -15,3 +15,29 @@ footer {
 #fondo {
     background-image: url('../img/gatoPortada.jpg');
 }
+
+.pagination {
+    color: #ffc107!important;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: white!important;
+    background-color: #17a2b8!important;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    color: white!important;
+    background-color: #17a2b8!important;
+}
+
+.page-item.active,
+.page-link {
+    color: white!important;
+    background-color: #17a2b8!important;
+}

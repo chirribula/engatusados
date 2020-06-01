@@ -10,7 +10,7 @@
     <title>Gatos - Engatusados</title>
     <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
-    <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
+    <link rel="icon" href="{!! url('img/IconoGato2.png') !!}">
 </head>
 <body>
     @include('includes.header')
@@ -20,13 +20,16 @@
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#encontrados" role="tab" aria-controls="encontrados" aria-selected="true">Encontrados</a>
+                        <a class="nav-link active" style="color:black" id="home-tab" data-toggle="tab" href="#encontrados" role="tab" aria-controls="encontrados" aria-selected="true">Encontrados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#perdidos" role="tab" aria-controls="perdidos" aria-selected="false">Perdidos</a>
+                        <a class="nav-link" style="color:black" id="profile-tab" data-toggle="tab" href="#perdidos" role="tab" aria-controls="perdidos" aria-selected="false">Perdidos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#adopcion" role="tab" aria-controls="adopcion" aria-selected="false">En adopción</a>
+                        <a class="nav-link" style="color:black" id="profile-tab" data-toggle="tab" href="#adopcion" role="tab" aria-controls="adopcion" aria-selected="false">En adopción</a>
+                    </li>
+                    <li>
+
                     </li>
                     <li>
                         <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning ">Insertar Gato</button></a>
@@ -48,7 +51,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4  mt-5 mb-5">GATOS ENCONTRADOS</h3>
+                                <h3 class="text-center m-4  mt-5 mb-5 text-info">GATOS ENCONTRADOS</h3>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -86,7 +89,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 mt-5 mb-5">GATOS PERDIDOS</h3>
+                                <h3 class="text-center m-4 mt-5 mb-5 text-info">GATOS PERDIDOS</h3>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -125,11 +128,11 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 mt-5 mb-5">GATOS EN ADOPCIÓN</h3>
+                                <h3 class="text-center m-4 mt-5 mb-5 text-info">GATOS EN ADOPCIÓN</h3>
 
                                 <div class="row">
                                     @foreach ($gatos as $gato)
-                                         @if($gato->estado=='Adopcion')
+                                         @if($gato->estado=='Adopción')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                 <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                                     <div class="card" >

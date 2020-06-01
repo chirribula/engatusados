@@ -7,10 +7,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>ver un gato - Engatusados</title>
+    <title>Ver un gato / Engatusados</title>
     <link href="https://fonts.googleapis.com/css?family=Lora|Solway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
+    <link rel="icon" href="{!! url('img/IconoGato2.png') !!}">
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
 </head>
 <body>
@@ -18,34 +18,44 @@
         <div class="container-fluid" >
 
 
-            <div class="row">
+            <div class="row mb-5">
 
-               <div class="col-sm-6 mt-4">
+               <div class="col-sm-8 mt-4 mb-3 pb-5">
 
-                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="poster de la pelicula" width="700px;"  style="opacity:1"  >
+                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"  style="opacity:1"  >
 
                 </div>
 
-                <div class="col-sm-6 p-3">
-                    <h1 class="pb-5"> {{$gato->nombre}}</h1>
-                    <p>{{$gato->raza}}</p>
-                    <p>{{$gato->sexo}}</p>
-                    <p>{{$gato->edad}}</p>
-                    <p>{{$gato->descripcion}}</p>
+                <div class="col-sm-4 p-3 mt-4 mb-5 pb-5 text-center">
+                    <h3 class="pb-4 pt-2 text-info">{{$gato->nombre}}</h3>
+                    <p>Raza: {{$gato->raza}}</p>
+                    <p>Sexo: {{$gato->sexo}}</p>
+                    <p>Colores: {{$gato->colores}}</p>
+                    <p>Castrado: {{$gato->castrado}}</p>
+                    <p>Edad: {{$gato->edad}}</p>
+                    <p>Direccion: {{$gato->direccion}}</p>
+                    <p>Localidad: {{$gato->localidad}}</p>
+                    <p>Provincia: {{$gato->provincia}}</p>
+                    <p>Teléfono: {{$gato->telefono}}</p>
+                    <p>Email de contacto: {{$gato->email}}</p>
+                    <p>Descripción: {{$gato->descripcion}}</p>
 
                    @if($gato->estado=="Perdido")
-                        <p style="color:red;font-weight:bolder; font-size:30px;">Perdido</p>
-
+                        <p style="color:red;font-weight:bolder; font-size:20px;">Perdido</p>
                    @elseif($gato->estado=="Encontrado")
-                        <p style="color:green; font-weight:bolder; font-size:30px;">Encontrado</p>
-                    @elseif($gato->estado=="Adopcion")
-                        <p style="color:blue; font-weight:bolder; font-size:30px;">Adopcion</p>
+                        <p style="color:green; font-weight:bolder; font-size:20px;">Encontrado</p>
+                   @elseif($gato->estado=="Adopción")
+                        <p style="color:blue; font-weight:bolder; font-size:20px;">Adopción</p>
+                   @endif
+
+                   @if($gato->usuarioId==auth()->id())
+                        <a href="{{ action('GatoController@editarGato', ['id' => $gato->id] ) }}" class="btn btn-warning">Modificar gato</a>
                    @endif
 
                 </div>
 
             </div>
-
+<!--
             <div class="row">
                 <div class="col mt-5">
                     <div id="contenido" class="contacto">
@@ -69,13 +79,10 @@
                           </script>
 
                           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFbv4HfweEb0e4gW-WKH3ANmc_eQZwvVM&callback=initMap"async defer></script>
-
                       </div>
                 </div>
-
-
             </div>
-
+   -->
         </div>
     @include('includes.footer')
 </body>
