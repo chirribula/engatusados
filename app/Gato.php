@@ -10,7 +10,7 @@ class Gato extends Model
     protected $table = 'gatos';
 
     protected $fillable = [
-        'usuarioId', 'nombre', 'edad', 'raza', 'sexo', 'colores', 'descripcion', 'imagen', 'castrado', 'estado', 'direccion', 'localidad', 'provincia', 'email', 'telefono'
+        'usuarioId', 'nombre', 'edad', 'raza', 'sexo', 'colores', 'descripcion', 'imagen', 'castrado', 'estado', 'direccion', 'localidad', 'provincia'
     ];
 
     //Relación muchos a uno

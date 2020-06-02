@@ -34,23 +34,22 @@ Route::group(['prefix'=>'Engatusados'], function(){
 
     Route::get('verUnGato/{id}','GatoController@getShow')->where('id','[0-9]+');
 
-    Route::get('insertarGato','GatoController@insertarGato');
+    Route::get('insertarGato','GatoController@insertarGato')->middleware('auth');
 
     Route::get('gatos/{imagen}','GatoController@getImage');
 
-    Route::post('insertarGato/Submit','GatoController@save');
-
-    Route::get('editarGato/{id}','GatoController@editarGato')->where('id','[0-9]+');
-    Route::post('editarGato/submit/{id}','GatoController@updateGato')->where('id','[0-9]+');
+    Route::post('insertarGato/Submit','GatoController@save')->middleware('auth');
+    Route::get('editarGato/{id}','GatoController@editarGato')->where('id','[0-9]+')->middleware('auth');
+    Route::post('editarGato/submit/{id}','GatoController@updateGato')->where('id','[0-9]+')->middleware('auth');
 
 });
 
 
 Route::group(['prefix'=>'Engatusados/Usuario'], function(){
 
-    Route::get('verUsuario/{id}','UserController@verUsuario')->where('id','[0-9]+');
-    Route::get('editarUsuario/{id}','UserController@edit')->where('id','[0-9]+');
-    Route::put('editar/submit/{id}','UserController@update')->where('id','[0-9]+');
+    Route::get('verUsuario/{id}','UserController@verUsuario')->where('id','[0-9]+')->middleware('auth');
+    Route::get('editarUsuario/{id}','UserController@edit')->where('id','[0-9]+')->middleware('auth');
+    Route::put('editar/submit/{id}','UserController@update')->where('id','[0-9]+')->middleware('auth');
 
 });
 

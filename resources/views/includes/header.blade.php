@@ -28,7 +28,7 @@
                     @auth
                         <a class="nav-link text-warning" href="{{action('UserController@verUsuario', ['id' => auth()->user()->id])}}"> {{auth()->user()->usuario }}</a>         <!--muestra el nombre de usuario si no está logueado-->
                 @else
-                        <a href="{{ route('home') }}"  style="display:inline">
+                        <a href="{{ route('login') }}"  style="display:inline">
 
                             <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
                                 Loguearse

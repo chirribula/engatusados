@@ -26,7 +26,7 @@
 
                 </div>
 
-                <div class="col-sm-4 p-3 mt-4 mb-5 pb-5 text-center">
+                <div class="col-sm-4 p-3 mt-1 mb-5 pb-5 text-center">
                     <h3 class="pb-4 pt-2 text-info">{{$gato->nombre}}</h3>
                     <p>Raza: {{$gato->raza}}</p>
                     <p>Sexo: {{$gato->sexo}}</p>
@@ -36,8 +36,8 @@
                     <p>Direccion: {{$gato->direccion}}</p>
                     <p>Localidad: {{$gato->localidad}}</p>
                     <p>Provincia: {{$gato->provincia}}</p>
-                    <p>Teléfono: {{$gato->telefono}}</p>
-                    <p>Email de contacto: {{$gato->email}}</p>
+                    <p>Teléfono: {{$usuario->telefono}}</p>
+                    <p>Email de {{$usuario->usuario}}: {{$usuario->email}}</p>
                     <p>Descripción: {{$gato->descripcion}}</p>
 
                    @if($gato->estado=="Perdido")

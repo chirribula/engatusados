@@ -10,7 +10,7 @@
     <title>Editar usuario - Engatusados</title>
     <link href="https://fonts.googleapis.com/css?family=Lora|Solway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="{!! url('img/IconoGato.png') !!}">
+    <link rel="icon" href="{!! url('img/IconoGato2.png') !!}">
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
 </head>
 <body>

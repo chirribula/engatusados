@@ -28,8 +28,6 @@ class CreateGatosTable extends Migration
             $table->string('direccion',100);
             $table->string('localidad',100);
             $table->string('provincia',100);
-            $table->string('telefono',100);
-            $table->string('email',30);
             $table->foreign('usuarioId')->references('id')->on('users');
             $table->timestamps();
         });

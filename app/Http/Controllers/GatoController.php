@@ -9,14 +9,15 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;     //tres clases importadas para trabajar con imágenes
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Auth\Middleware\Authenticate;
 
 class GatoController extends Controller
 {
+    /*
     public function __construct() {
         $this->middleware('auth');
     }
-
+    */
 
     public function index(){
         return view('index');
@@ -42,7 +43,14 @@ class GatoController extends Controller
 
     public function getShow($id){
         $gato=Gato::findOrFail($id);
-        return view('Gato.verUnGato',['gato'=>$gato]);
+        $usuario=DB::table('users')
+            ->join('gatos','gatos.usuarioId','=','users.id')
+            ->select('users.telefono','users.email','users.usuario')
+            ->where('gatos.id', '=', $id)
+            ->first();
+        return view('Gato.verUnGato',['gato'=>$gato, 'usuario'=>$usuario]);
+
+
     }
 
     public function editarGato($id){
@@ -78,8 +86,6 @@ class GatoController extends Controller
         $gato->localidad = $request->input('localidad');
         $gato->provincia = $request->input('provincia');
 
-        $gato->email = auth()->user()->email;
-        $gato->telefono = auth()->user()->telefono;
         $gato->usuarioId = auth()->user()->id;
 
         $image_path = $request->file('imagen');                                  // Subir la imagen
@@ -112,8 +118,6 @@ class GatoController extends Controller
         $gato->localidad = $request->input('localidad');
         $gato->provincia = $request->input('provincia');
 
-        $gato->email = auth()->user()->email;
-        $gato->telefono = auth()->user()->telefono;
         $gato->usuarioId = auth()->user()->id;
 
 
