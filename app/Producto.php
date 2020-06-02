@@ -12,4 +12,10 @@ class Producto extends Model
         'nombre', 'marca', 'precio', 'categoria', 'stock', 'descripcion', 'tamaño', 'imagen'
     ];
 
+     //Relación muchos a uno
+
+     public function categoria(){
+        return $this->belongsTo('App\Categoria', 'categoria');  //usuarioId es la clave foránea en la tabla gatos
+    }
+
 }

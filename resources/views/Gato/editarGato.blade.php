@@ -22,74 +22,126 @@
                     {{csrf_field()}}
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{$gato->nombre}}" required>
+                            <label for="nombre">{{ __('Nombre:') }}</label>
+                            <input type="text" class="form-control" id="nombre" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{$gato->nombre}}"  placeholder="Nombre del gato" autocomplete="nombre" autofocus required>
+                            @error('nombre')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="edad">Edad:</label>
-                            <input type="text" class="form-control" id="edad" name="edad" value="{{$gato->edad}}"required>
+                            <label for="edad">{{ __('Edad:') }}</label>
+                            <input type="text" class="form-control" id="edad" class="form-control @error('edad') is-invalid @enderror" name="edad" value="{{$gato->edad}}"  autocomplete="edad" autofocus placeholder="Edad del gato" required>
+                            @error('edad')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group col-md-4">
                             <label for="raza">Raza:</label>
-                            <input type="text" class="form-control" id="raza" name="raza" value="{{$gato->raza}}"required>
+                            <input type="text" class="form-control" id="raza" class="form-control @error('raza') is-invalid @enderror" name="raza" value="{{$gato->raza}}"  autocomplete="raza" placeholder="Raza del gato"required>
+                            @error('raza')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="sexo">Sexo:</label>
-                            <select class="form-control" id="sexo" name="sexo" value="{{$gato->sexo}}" required>
+                            <select class="form-control" id="sexo" class="form-control @error('sexo') is-invalid @enderror" name="sexo" value="{{$gato->sexo}}"  autocomplete="sexo" required>
                               <option value="macho">Macho</option>
                               <option value="hembra">Hembra</option>
                             </select>
+                            @error('sexo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label>Direccion:</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion" value="{{$gato->direccion}}"required>
+                            <input type="text" class="form-control" id="direccion" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{$gato->direccion}}"  autocomplete="direccion"placeholder="Donde apareció/se perdió/se encuentra" required>
+                            @error('direccion')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label>Localidad:</label>
-                            <input type="text" class="form-control" id="localidad" name="localidad" value="{{$gato->localidad}}"required>
+                            <input type="text" class="form-control" id="localidad" class="form-control @error('localidad') is-invalid @enderror" name="localidad" value="{{$gato->localidad}}"  autocomplete="localidad" placeholder="Localidad donde se encuentra"required>
+                            @error('localidad')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Provincia:</label>
-                            <input type="text" class="form-control" id="provincia" name="provincia" value="{{$gato->provincia}}"required>
+                            <input type="text" class="form-control" id="provincia" class="form-control @error('provincia') is-invalid @enderror" name="provincia" value="{{$gato->provincia}}"  autocomplete="provincia" placeholder="Provincia donde se encuentra" required>
+                            @error('provincia')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Imagen:</label>
-                            <input type="file" class="form-control" id="imagen" name="imagen" value="{{$gato->imagen}}" >
+                            <input type="file" class="form-control" id="imagen" class="form-control @error('imagen') is-invalid @enderror" name="imagen" value="{{$gato->imagen}}"   autocomplete="imagen" >
+                            @error('imagen')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Colores:</label>
-                            <input type="text" class="form-control" id="colores" name="colores" value="{{$gato->colores}}"required>
+                            <input type="text" class="form-control" id="colores" class="form-control @error('colores') is-invalid @enderror" name="colores" value="{{$gato->colores}}" autocomplete="colores" placeholder="Colores del gato" required>
+                            @error('colores')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="estado">Estado:</label>
-                            <select class="form-control" id="estado" name="estado" value="{{$gato->estado}}" required>
+                            <select class="form-control" id="estado" class="form-control @error('estado') is-invalid @enderror" name="estado" value="{{$gato->estado}}"  autocomplete="estado"  required>
                               <option>Perdido</option>
                               <option>Encontrado</option>
                               <option>Adopción</option>
                             </select>
+                            @error('estado')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group col-md-4">
                             <label>Castrado:</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="castrado" id="castradoSi"  value="si" checked>
+                                <input class="form-check-input" type="radio"  name="castrado"   id="castradoSi" value="si" required>
                                 <label class="form-check-label" for="perdido">Sí</label> <br>
+
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="castrado" id="castradoNo" value="no">
+                                <input class="form-check-input" type="radio" name="castrado"  id="castradoNo" value="no" required>
                                 <label class="form-check-label" for="encontrado">No</label><br>
+
                             </div>
                         </div>
                     </div>
@@ -97,20 +149,13 @@
 
                     <div class="form-group">
                         <label for="sinopsis">Descripcion:</label>
-                        <textarea class="form-control" rows="3" type="text" id="descripcion" name="descripcion" required>{{$gato->descripcion}}</textarea>
+                        <textarea class="form-control" rows="3" type="text" id="descripcion" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion"   autocomplete="descripcion" placeholder="Escriba una descripción del gato" required>{{$gato->descripcion}}</textarea>
                     </div>
                     <button type="submit" name="submit" class="btn btn-info">Modificar Gato</button>
                 </form>
-            </div>
-
         </div>
 
 
-
-
-
-
-        </div>
     @include('includes.footer')
 </body>
 </html>

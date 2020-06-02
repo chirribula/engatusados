@@ -19,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{action('GatoController@verGatos')}}">Gatos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{action('ProductoController@verProductos')}}">Tienda</a>
+          </li>
 
         </ul>
 

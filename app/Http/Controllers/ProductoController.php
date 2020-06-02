@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Producto;
+use App\Categoria;
 use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;
@@ -12,5 +15,10 @@ use Illuminate\Auth\Middleware\Authenticate;
 
 class ProductoController extends Controller
 {
-    //
+    public function verProductos(){
+        $productos=Producto::all();
+        $categorias=Categoria::all();
+        return view('Producto.productos',['productos'=>$productos, 'categorias'=>$categorias]);
+
+    }
 }

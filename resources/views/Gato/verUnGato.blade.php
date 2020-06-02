@@ -20,9 +20,9 @@
 
             <div class="row mb-5">
 
-               <div class="col-sm-8 mt-4 mb-3 pb-5">
+               <div class="col-sm-8 mt-4 mb-3 pb-5" max-height="700px">
 
-                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"  style="opacity:1"  >
+                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >
 
                 </div>
 

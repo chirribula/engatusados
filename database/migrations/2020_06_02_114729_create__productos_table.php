@@ -19,11 +19,13 @@ class CreateProductosTable extends Migration
             $table->string('nombre',100);
             $table->string('marca',100);
             $table->float('precio', 8, 2);
-            $table->string('categoria',100);
+            $table->unsignedBigInteger('categoria');   //clave foránea de la tabla categoria
             $table->integer('stock');
             $table->string('descripcion',500);
             $table->string('tamaño',100);
             $table->string('imagen',500);
+            $table->foreign('categoria')->references('id')->on('categoriaproductos');
+            $table->timestamps();
         });
     }
 

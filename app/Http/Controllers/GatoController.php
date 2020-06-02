@@ -134,7 +134,7 @@ class GatoController extends Controller
         }
 
         $gato->save();
-        return redirect()->action("GatoController@index")->with('status', $gato->nombre.' Gato insertado correctamente');
+        return redirect()->action("GatoController@verGatos")->with('status', $gato->nombre.' Gato insertado correctamente');
     }
 
     }

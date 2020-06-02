@@ -19,9 +19,10 @@ class User extends Authenticatable
         'rol', 'nombre', 'apellidos', 'usuario', 'direccion', 'localidad', 'provincia', 'telefono', 'fecha', 'email', 'password',
     ];
 
-    //Relación uno a muchos
+    //Relación One To Many / de uno a muchos
+
     public function gatos(){
-        return $this->hasMany('App\Gatos');
+        return $this->hasMany('App\Gato')->orderBy('id','desc');
     }
 
 
