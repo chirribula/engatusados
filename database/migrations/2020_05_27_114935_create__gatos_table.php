@@ -15,7 +15,7 @@ class CreateGatosTable extends Migration
     {
         Schema::create('Gatos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('usuarioId');                //clave foránea de la tabla usuario
+            $table->unsignedBigInteger('usuarioId');   //clave foránea de la tabla usuario
             $table->string('nombre',100);
             $table->string('edad',100);
             $table->string('raza',100);

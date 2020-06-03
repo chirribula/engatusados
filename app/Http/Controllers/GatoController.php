@@ -63,18 +63,19 @@ class GatoController extends Controller
     }
 
     public function verGatos(){
-        $gatos = DB::table('gatos')->paginate(5);
+        $gatos = DB::table('gatos')->paginate(4);                   //paginate para que haga la paginación a partir de 4, añadir a la vista links
         return view('Gato.gatos',['gatos'=>$gatos]);
     }
 
     public function getImage($filename){
-        $file = Storage::disk('gatos')->get($filename);
+        $file = Storage::disk('gatos')->get($filename);             //necesario para que se muestre la imagen, crear discos virtuales y añadir en archivo gilesystems
         return new Response($file,200);
     }
 
     public function updateGato(Request $request,$id){
         $gato = Gato::find($id);
         $gato->nombre = $request->input('nombre');
+        $gato->nombre = strtoupper($gato->nombre);
         $gato->edad = $request->input('edad');
         $gato->raza = $request->input('raza');
         $gato->sexo = $request->get('sexo');                        //cambiar a get cuando usamos un select en formulario
@@ -107,6 +108,7 @@ class GatoController extends Controller
     public function save(Request $request){
         $gato = new Gato();
         $gato->nombre = $request->input('nombre');
+        $gato->nombre = strtoupper($gato->nombre);                  //para que se gurade en mayúsculas
         $gato->edad = $request->input('edad');
         $gato->raza = $request->input('raza');
         $gato->sexo = $request->get('sexo');                        //cambiar a get cuando usamos un select en formulario

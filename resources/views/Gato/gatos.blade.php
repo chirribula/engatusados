@@ -52,7 +52,7 @@
                                 <h3 class="text-center m-4  mt-5 mb-5 text-secondary">GATOS ENCONTRADOS</h3>
 
                                 @if (session('status'))
-                                    <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+                                    <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
                                  @endif
 
                                 <div class="row">
@@ -94,7 +94,7 @@
                                 <h3 class="text-center m-4 mt-5 mb-5 text-secondary">GATOS PERDIDOS</h3>
 
                                 @if (session('status'))
-                                    <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+                                    <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
                                 @endif
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -102,12 +102,10 @@
                                          <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
-
                                                         <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
-
-
                                                         <div class="card-body">
-                                                        <h5 class="card-title ">{{$gato->nombre}}</h5>
+                                                            <h5 class="card-title ">{{$gato->nombre}}</h5>
+                                                            <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -135,7 +133,7 @@
 
                                 <h3 class="text-center m-4 mt-5 mb-5 text-secondary">GATOS EN ADOPCIÓN</h3>
                                 @if (session('status'))
-                                    <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+                                    <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
                                  @endif
                                 <div class="row">
                                     @foreach ($gatos as $gato)
@@ -144,11 +142,12 @@
                                                 <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                                     <div class="card" >
 
-                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato {{$gato->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
 
 
                                                         <div class="card-body">
                                                         <h5 class="card-title ">{{$gato->nombre}}</h5>
+                                                            <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
                                                         </div>
                                                     </div>
 

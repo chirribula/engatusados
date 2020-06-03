@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="raza">Raza:</label>
+                            <label for="raza">{{ __('Raza:') }}</label>
                             <input type="text" class="form-control" id="raza" class="form-control @error('raza') is-invalid @enderror" name="raza" value="{{ old('raza') }}"  autocomplete="raza" placeholder="Raza del gato"required>
                             @error('raza')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="sexo">Sexo:</label>
+                            <label for="sexo">{{ __('Sexo:') }}</label>
                             <select class="form-control" id="sexo" class="form-control @error('sexo') is-invalid @enderror" name="sexo" value="{{ old('sexo') }}"  autocomplete="sexo" required>
                               <option value="macho">Macho</option>
                               <option value="hembra">Hembra</option>
@@ -66,7 +66,7 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-4">
-                            <label>Direccion:</label>
+                            <label>{{ __('Dirección:') }}</label>
                             <input type="text" class="form-control" id="direccion" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ old('direccion') }}"  autocomplete="direccion"placeholder="Donde apareció/se perdió/se encuentra" required>
                             @error('direccion')
                                     <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-4">
-                            <label>Localidad:</label>
+                            <label>{{ __('Localidad:') }}</label>
                             <input type="text" class="form-control" id="localidad" class="form-control @error('localidad') is-invalid @enderror" name="localidad" value="{{ old('localidad') }}"  autocomplete="localidad" placeholder="Localidad donde se encuentra"required>
                             @error('localidad')
                                     <span class="invalid-feedback" role="alert">
@@ -87,7 +87,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label>Provincia:</label>
+                            <label>{{ __('Provincia:') }}</label>
                             <input type="text" class="form-control" id="provincia" class="form-control @error('provincia') is-invalid @enderror" name="provincia" value="{{ old('provincia') }}"  autocomplete="provincia" placeholder="Provincia donde se encuentra" required>
                             @error('provincia')
                                     <span class="invalid-feedback" role="alert">
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label>Imagen:</label>
+                            <label>{{ __('Imagen:') }}</label>
                             <input type="file" class="form-control" id="imagen" class="form-control @error('imagen') is-invalid @enderror" name="imagen" value="{{ old('imagen') }}"  autocomplete="imagen" required>
                             @error('imagen')
                                     <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label>Colores:</label>
+                            <label>{{ __('Colores:') }}</label>
                             <input type="text" class="form-control" id="colores" class="form-control @error('colores') is-invalid @enderror" name="colores" value="{{ old('colores') }}"  autocomplete="colores" placeholder="Colores del gato" required>
                             @error('colores')
                                     <span class="invalid-feedback" role="alert">
@@ -119,7 +119,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="estado">Estado:</label>
+                            <label for="estado">{{ __('Estado:') }}</label>
                             <select class="form-control" id="estado" class="form-control @error('estado') is-invalid @enderror" name="estado" value="{{ old('estado') }}"  autocomplete="estado"  required>
                               <option>Perdido</option>
                               <option>Encontrado</option>
@@ -133,7 +133,7 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label>Castrado:</label><br>
+                            <label>{{ __('Castrado:') }}</label><br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio"  name="castrado"   id="castradoSi" value="si" required>
                                 <label class="form-check-label" for="perdido">Sí</label> <br>
@@ -149,8 +149,8 @@
 
 
                     <div class="form-group">
-                        <label for="sinopsis">Descripcion:</label>
-                        <textarea class="form-control" rows="3" type="text" id="descripcion" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" value="{{ old('descripcion') }}"  autocomplete="descripcion" placeholder="Escriba una descripción del gato" required></textarea>
+                        <label for="sinopsis">{{ __('Descripcion:') }}</label>
+                        <textarea class="form-control" rows="3" type="text" id="descripcion" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" value="{{ old('descripcion') }}"  autocomplete="descripcion" placeholder="Escriba una descripción del gato" maxlength="498" required></textarea>
                     </div>
                     <button type="submit" name="submit" class="btn btn-info">Añadir Gato</button>
                 </form>

@@ -35,7 +35,7 @@
                                 <a href="{{action('CategoriaController@insertarCategoria')}}"><button type="button" class="btn btn-warning ">Insertar Categoría</button></a>
                             </li>
                             <li>
-                                <a href="{{action('ProductoController@insertarProducto')}}"><button type="button" class="btn btn-danger ">Añadir Producto</button></a>
+                                <a href="{{action('ProductoController@insertarProducto')}}"><button type="button" class="btn btn-info ">Añadir Producto</button></a>
                             </li>
                             @endif
                         @endauth
@@ -61,27 +61,27 @@
 
                                 <div class="row">
                                     @foreach ($productos as $producto)
-                                            <a href="" style="text-decoration: none; color:black;">
+                                            <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">
                                                 <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                         <div class="card" >
-                                                            <img class="card-img-top" src="" alt="producto" width="100%" height="350px;"  style="opacity:1;"  >
+                                                            <img class="card-img-top" src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" alt="{{$producto->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                             <div class="card-body">
                                                                 <h5 class="card-title ">{{$producto->nombre}}</h5>
+                                                                <p class="card-text">{{$producto->precio}} €</p>
                                                             </div>
                                                         </div>
                                                     </a>
                                                 </div>
                                             </a>
                                      @endforeach
-
+                                </div>
+                                <div class="row">
+                                    <div class="col-5"></div>
+                                    <div class="col-2 ml-5 mt-5 text-center">
+                                         <div class="clearFix">{{$productos->links()}}</div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-5"></div>
-                                        <div class="col-2 ml-5 mt-5 text-center">
-                                             <div class="clearFix"></div>
-                                        </div>
-                                        <div class="col-5"></div>
-                                    </div>
+                                    <div class="col-5"></div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -94,17 +94,18 @@
                                 <div class="col-md-12">
                                     <h3 class="text-center m-4  mt-5 mb-5 text-secondary">{{$categoria->nombre}} </h3>
                                     @if (session('status'))
-                                        <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+                                        <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
                                     @endif
                                     <div class="row">
                                         @foreach ($productos as $producto)
                                             @if($producto->categoria==$categoria->id)
-                                                <a href="" style="text-decoration: none; color:black;">
-                                                    <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
+                                            <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">
+                                                <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                             <div class="card" >
-                                                                <img class="card-img-top" src="" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                                <img class="card-img-top" src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" alt="{{$producto->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                                 <div class="card-body">
                                                                     <h5 class="card-title ">{{$producto->nombre}}</h5>
+                                                                    <p class="card-text">{{$producto->precio}} €</p>
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -116,7 +117,7 @@
                                     <div class="row">
                                         <div class="col-5"></div>
                                         <div class="col-2 ml-5 mt-5 text-center">
-                                            <div class="clearFix"></div>
+                                             <div class="clearFix">{{$productos->links()}}</div>
                                         </div>
                                         <div class="col-5"></div>
                                     </div>

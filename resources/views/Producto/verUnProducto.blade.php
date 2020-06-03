@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Ver un gato / Engatusados</title>
+    <title>Ver un producto / Engatusados</title>
     <link href="https://fonts.googleapis.com/css?family=Lora|Solway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/423fa98c0f.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{!! url('img/IconoGato2.png') !!}">
@@ -18,80 +18,80 @@
         <div class="container-fluid" >
 
 
-            <div class="row mb-5">
+            <div class="row mb-4 mt-2">
 
-               <div class="col-sm-8 mt-4 mb-3 pb-5" max-height="700px">
+                <div class="col-sm-2 mt-4 mb-3 pb-5" ></div>
+               <div class="col-sm-4 mt-4 mb-3 pb-5" max-height="700px">
 
-                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >
+                    <img src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >
 
                 </div>
 
-                <div class="col-sm-4 p-3 mt-1 mb-5 pb-5 text-center">
+                <div class="col-sm-4 p-3 mt-5 mb-5 pb-5 text-center">
                     <table class="table ">
                         <thead >
                             <tr>
-                                <th scope="col" colspan="2"><h3 class="pb-4 pt-2 text-secondary">{{$gato->nombre}}</h3></th>
+                                <th scope="col" colspan="2"><h3 class="pb-4 pt-2 text-secondary">{{$producto->nombre}}</h3></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="table-secondary">
-                                <td>Raza:</td>
-                                <td>{{$gato->raza}}</td>
+                                <td>Precio:</td>
+                                <td>{{$producto->precio}}</td>
                             </tr>
                             <tr>
-                                <td>Sexo:</td>
-                                <td>{{$gato->sexo}}</td>
+                                <td>Marca:</td>
+                                <td>{{$producto->marca}}</td>
                             </tr>
                             <tr class="table-secondary">
-                                <td>Colores:</td>
-                                <td>{{$gato->colores}}</td>
+                                <td>Categoria:</td>
+                                <td>{{$producto->categoria}}</td>
                             </tr>
+
                             <tr>
-                                <td>Castrado:</td>
-                                <td>{{$gato->castrado}}</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>Edad:</td>
-                                <td>{{$gato->edad}}</td>
-                            </tr>
-                            <tr>
-                                <td>Direccion:</td>
-                                <td>{{$gato->direccion}}</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>Localidad:</td>
-                                <td>{{$gato->localidad}}</td>
-                            </tr>
-                            <tr>
-                                <td>Provincia:</td>
-                                <td>{{$gato->provincia}}</td>
-                            </tr>
-                            <tr class="table-secondary">
-                                <td>Telefono:</td>
-                                <td>{{$usuario->telefono}}</td>
-                            </tr>
-                            <tr>
-                                <td>Email}:</td>
-                                <td>{{$usuario->email}}</td>
-                            </tr>
-                            <tr class="table-secondary">
                                 <td >Descripción:</td>
-                                <td>{{$gato->descripcion}}</td>
+                                <td>{{$producto->descripcion}}</td>
                             </tr>
+                            <tr>
+                                @if($producto->stock < 1)
+                                    <td colspan="2">
+                                        <p style="color:red;font-weight:bolder; font-size:20px;">AGOTADO</p>
+                                    </td>
+                                 @else
+                                    <td>
+                                        <p style="color:green; font-weight:bolder; font-size:20px;">DISPONIBLE</p>
+                                    </td>
+                                    <td>
+                                        <a href="" class="btn btn-warning">COMPRAR</a>
+                                    </td>
+                                @endif
+                            </tr>
+
+                            @if(Route::has('login'))          <!--Si no está logueado ni es admin no muestra el botón-->
+                                @auth
+                                    @if(auth()->user()->rol=='admin')
+                                    <tr class="table-secondary">
+                                        <td>Stock:</td>
+                                        <td>{{$producto->stock}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="{{ action('ProductoController@editarProducto', ['id' => $producto->id]) }}" class="btn btn-success">Editar Producto</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ action('ProductoController@eliminarProducto', ['id' => $producto->id]) }}" class="btn btn-danger">Eliminar Producto</a>
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endauth
+                            @endif
+
                         </tbody>
                     </table>
 
-                   @if($gato->estado=="Perdido")
-                        <p style="color:red;font-weight:bolder; font-size:20px;">PERDIDO</p>
-                   @elseif($gato->estado=="Encontrado")
-                        <p style="color:green; font-weight:bolder; font-size:20px;">ENCONTRADO</p>
-                   @elseif($gato->estado=="Adopción")
-                        <p style="color:blue; font-weight:bolder; font-size:20px;">ADOPCIÓN</p>
-                   @endif
 
-                   @if($gato->usuarioId==auth()->id())
-                        <a href="{{ action('GatoController@editarGato', ['id' => $gato->id] ) }}" class="btn btn-warning">Modificar gato</a>
-                   @endif
+
+
 
                 </div>
 
