@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4  mt-5 mb-5 text-info">GATOS ENCONTRADOS</h3>
+                                <h3 class="text-center m-4  mt-5 mb-5 text-secondary">GATOS ENCONTRADOS</h3>
 
                                 @if (session('status'))
                                     <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
@@ -91,7 +91,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 mt-5 mb-5 text-info">GATOS PERDIDOS</h3>
+                                <h3 class="text-center m-4 mt-5 mb-5 text-secondary">GATOS PERDIDOS</h3>
 
                                 @if (session('status'))
                                     <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
@@ -133,7 +133,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4 mt-5 mb-5 text-info">GATOS EN ADOPCIÓN</h3>
+                                <h3 class="text-center m-4 mt-5 mb-5 text-secondary">GATOS EN ADOPCIÓN</h3>
                                 @if (session('status'))
                                     <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
                                  @endif

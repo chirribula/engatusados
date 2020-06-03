@@ -21,4 +21,9 @@ class ProductoController extends Controller
         return view('Producto.productos',['productos'=>$productos, 'categorias'=>$categorias]);
 
     }
+    public function insertarProducto(){
+        return view('Producto.insertarProducto');
+    }
+
+
 }

@@ -56,6 +56,7 @@ Route::group(['prefix'=>'Engatusados/Usuario'], function(){
 Route::group(['prefix'=>'Engatusados/Tienda'], function(){
 
     Route::get('productos','ProductoController@verProductos');
+    Route::get('productos/insertarProductos','ProductoController@insertarProducto')->middleware('auth');
    // Route::get('verUsuario/{id}','UserController@verUsuario')->where('id','[0-9]+')->middleware('auth');
    // Route::get('editarUsuario/{id}','UserController@edit')->where('id','[0-9]+')->middleware('auth');
    // Route::put('editar/submit/{id}','UserController@update')->where('id','[0-9]+')->middleware('auth');

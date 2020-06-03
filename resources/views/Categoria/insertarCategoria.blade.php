@@ -17,7 +17,7 @@
     @include('includes.header')
 
             <div class="container mb-5">
-                <h3 class="text-center mt-5 mb-5 text-info">AÑADIR UNA CATEGORIA</h3>
+                <h3 class="text-center mt-5 mb-5 text-secondary">AÑADIR UNA CATEGORIA</h3>
                 <form action="{{action('CategoriaController@save')}}" method="POST" enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
 

@@ -14,6 +14,7 @@ class CategoriaController extends Controller
     public function save(Request $request){
         $categoria = new Categoria();
         $categoria->nombre = $request->input('nombre');
+        $categoria->nombre = strtoupper($categoria->nombre);
         $categoria->save();
         return redirect()->action("ProductoController@verProductos")->with('status', $categoria->nombre.' insertada correctamente');
     }

@@ -27,9 +27,19 @@
                             <a class="nav-link" style="color:black" id="profile-tab" data-toggle="tab" href="#{{$categoria->nombre}}" role="tab" aria-controls="{{$categoria->nombre}}" aria-selected="false">{{$categoria->nombre}}</a>
                         </li>
                     @endforeach
-                    <li>
-                        <a href="{{action('CategoriaController@insertarCategoria')}}"><button type="button" class="btn btn-warning ">Insertar Categoría</button></a>
-                    </li>
+
+                    @if(Route::has('login'))          <!--Si no está logueado ni es admin no muestra el botón-->
+                        @auth
+                            @if(auth()->user()->rol=='admin')
+                            <li>
+                                <a href="{{action('CategoriaController@insertarCategoria')}}"><button type="button" class="btn btn-warning ">Insertar Categoría</button></a>
+                            </li>
+                            <li>
+                                <a href="{{action('ProductoController@insertarProducto')}}"><button type="button" class="btn btn-danger ">Añadir Producto</button></a>
+                            </li>
+                            @endif
+                        @endauth
+                    @endif
                   <!--Aparece el botón si eres administrador-->
                 </ul>
 
@@ -43,7 +53,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4  mt-5 mb-5 text-info">TODOS LOS PRODUCTOS</h3>
+                                <h3 class="text-center m-4  mt-5 mb-5 text-secondary">TODOS LOS PRODUCTOS</h3>
 
                                 @if (session('status'))
                                     <p style="color:#6c757d; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
@@ -82,7 +92,7 @@
                         <div class="tab-pane fade" id="{{$categoria->nombre}}" role="tabpanel" aria-labelledby="{{$categoria->nombre}}-tab">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="text-center m-4  mt-5 mb-5 text-info">{{$categoria->nombre}}</h3>
+                                    <h3 class="text-center m-4  mt-5 mb-5 text-secondary">{{$categoria->nombre}} </h3>
                                     @if (session('status'))
                                         <p style="color:rgb(29, 188, 236); font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
                                     @endif
