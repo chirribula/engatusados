@@ -17,7 +17,7 @@
     @include('includes.header')
 
             <div class="container mb-5">
-                <h3 class="text-center mt-5 mb-5 text-info">AÑADIR UN PRODCUTO</h3>
+                <h3 class="text-center mt-5 mb-5 text-info">AÑADIR UN PRODUCTO</h3>
                 <form action="{{action('ProductoController@save')}}" method="POST" enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
 

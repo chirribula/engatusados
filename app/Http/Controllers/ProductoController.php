@@ -17,8 +17,9 @@ class ProductoController extends Controller
 {
     public function verProductos(){
         $productos=DB::table('productos')->paginate(4);
+        $cont=0;
         $categorias=Categoria::all();
-        return view('Producto.productos',['productos'=>$productos, 'categorias'=>$categorias]);
+        return view('Producto.productos',['productos'=>$productos, 'categorias'=>$categorias , 'cont'=>$cont]);
 
     }
 
@@ -34,14 +35,19 @@ class ProductoController extends Controller
 
     public function getShow($id){
         $producto=Producto::findOrFail($id);
-        return view('Producto.verUnProducto',['producto'=>$producto]);
+        $categoria=DB::table('categorias')
+            ->join('productos','productos.categoria','=','categorias.id')
+            ->select('categorias.nombre')
+            ->where('productos.id', '=', $id)
+            ->first();
+        return view('Producto.verUnProducto',['producto'=>$producto, 'categoria'=>$categoria]);
     }
 
     public function eliminarProducto($id){
         $producto = Producto::find($id);
         Storage::disk('productos')->delete($producto->imagen);      //no funciona
         $producto->delete();
-        return redirect()->action('ProductoController@verProductos')->with('status' , 'Producto borrado correctamente');
+        return redirect()->action('ProductoController@verProductos')->with('status' , $producto->nombre.' borrado correctamente');
     }
 
     public function editarProducto($id){
@@ -102,7 +108,7 @@ class ProductoController extends Controller
         }
 
         $producto->save();
-        return redirect()->action("ProductoController@getShow", ["id"=>$id])->with('status', $producto->actualizado.' insertado correctamente');
+        return redirect()->action("ProductoController@getShow", $producto->id)->with('status', $producto->nombre.' actualizado correctamente');
     }
 
 

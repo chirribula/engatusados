@@ -17,6 +17,19 @@
     @include('includes.header')
         <div class="container-fluid" >
 
+            @if (session()->has('status'))
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 justify-content-between" >
+                    <div class="alert alert-success alert-dismissable  mt-4 mb-2 text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{session('status')}}
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            @endif
+
 
             <div class="row mb-4 mt-2">
 
@@ -36,23 +49,23 @@
                         </thead>
                         <tbody>
                             <tr class="table-secondary">
-                                <td>Precio:</td>
+                                <td>PRECIO:</td>
                                 <td>{{$producto->precio}}</td>
                             </tr>
                             <tr>
-                                <td>Marca:</td>
+                                <td>MARCA:</td>
                                 <td>{{$producto->marca}}</td>
                             </tr>
                             <tr class="table-secondary">
-                                <td>Categoria:</td>
-                                <td>{{$producto->categoria}}</td>
+                                <td>CATEGORIA:</td>
+                                <td>{{$categoria->nombre}}</td>
                             </tr>
 
                             <tr>
-                                <td >Descripción:</td>
+                                <td >DESCRIPCION:</td>
                                 <td>{{$producto->descripcion}}</td>
                             </tr>
-                            <tr>
+                            <tr class="table-secondary">
                                 @if($producto->stock < 1)
                                     <td colspan="2">
                                         <p style="color:red;font-weight:bolder; font-size:20px;">AGOTADO</p>
@@ -70,16 +83,16 @@
                             @if(Route::has('login'))          <!--Si no está logueado ni es admin no muestra el botón-->
                                 @auth
                                     @if(auth()->user()->rol=='admin')
-                                    <tr class="table-secondary">
+                                    <tr>
                                         <td>Stock:</td>
                                         <td>{{$producto->stock}}</td>
                                     </tr>
-                                    <tr>
+                                    <tr  class="table-secondary">
                                         <td>
                                             <a href="{{ action('ProductoController@editarProducto', ['id' => $producto->id]) }}" class="btn btn-success">Editar Producto</a>
                                         </td>
                                         <td>
-                                            <a href="{{ action('ProductoController@eliminarProducto', ['id' => $producto->id]) }}" class="btn btn-danger">Eliminar Producto</a>
+                                            <a href="{{action('ProductoController@eliminarProducto', ['id' => $producto->id]) }}" class="btn btn-danger">Eliminar Producto</a>
                                         </td>
                                     </tr>
                                     @endif

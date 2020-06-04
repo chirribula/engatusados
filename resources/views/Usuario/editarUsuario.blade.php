@@ -18,6 +18,18 @@
         <div class="container mb-5">
             <h3 class="text-center mt-5 mb-5 text-info">MODIFICAR USUARIO</h3>
                 <form action="{{action('UserController@update',['id'=>$usuario->id])}}" method="POST" enctype="multipart/form-data" style="height: 600px">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <p>Corrige los siguientes errores:</p>
+                            <ul>
+                                @foreach ($errors->all() as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+
                     <input type="hidden" name="_method" value="PUT">
                     {{csrf_field()}}
                     <div class="form-row">

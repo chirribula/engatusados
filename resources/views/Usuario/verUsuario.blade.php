@@ -17,30 +17,62 @@
     @include('includes.header')
         <div class="container-fluid mb-5 pb-5" >
 
+            @if (session()->has('status'))
+                <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{session('status')}}
+                </div>
+            @endif
 
             <div class="row mt-5">
 
-                <div class="col-sm-1 p-3">
+                <div class="col-sm-5 p-3 mt-3">
+                    <table class="table text-center">
+                        <thead >
+                            <tr>
+                                <th scope="col" colspan="2"><h3 class="pb-4 pt-2 text-secondary"> {{auth()->user()->usuario}}</h3></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-secondary">
+                                <td>Nombre:</td>
+                                <td>{{$usuario->nombre}}</td>
+                            </tr>
+                            <tr>
+                                <td>Apellidos:</td>
+                                <td> {{$usuario->apellidos}}</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td>Teléfono:</td>
+                                <td>{{$usuario->telefono}}</td>
+                            </tr>
+                            <tr>
+                                <td>Direccion:</td>
+                                <td>{{$usuario->direccion}}</td>
+                            </tr>
+                            <tr class="table-secondary">
+                                <td>Localidad:</td>
+                                <td>{{$usuario->localidad}}</td>
+                            </tr>
+                            <tr >
+                                <td>Provincia:</td>
+                                <td>{{$usuario->provincia}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="table-secondary">
+                                    <a href="{{ action('UserController@edit', ['id' => $usuario->id] ) }}" class="btn btn-warning">Modificar datos</a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
                 </div>
 
-                <div class="col-sm-4 p-3 mt-3">
-                    <h2 class="pb-5 text-info" > {{auth()->user()->usuario}}</h2>
-                    <p> Nombre: {{$usuario->nombre}}</p>
-                    <p> Apellidos: {{$usuario->apellidos}}</p>
-                    <p> Teléfono: {{$usuario->telefono}}</p>
-                    <p> Direccion: {{$usuario->direccion}}</p>
-                    <p> Localidad: {{$usuario->localidad}}</p>
-                    <p> Provincia: {{$usuario->provincia}}</p>
-
-                    <br><br>
-
-                    <a href="{{ action('UserController@edit', ['id' => $usuario->id] ) }}" class="btn btn-warning">Modificar datos</a>
-
-                </div>
-
-                <div class="col-sm-7 mt-4">
+                <div class="col-sm-7 ">
                     <div class="ros">
-                        <h3 class="text-info text-center">TUS GATOS</h3>
+                        <h3 class="text-secondary text-center">TUS GATOS</h3>
                     </div>
                     <div class="row">
                         @foreach ($gatos as $gato)

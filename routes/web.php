@@ -54,7 +54,7 @@ Route::group(['prefix'=>'Engatusados/Tienda'], function(){
     Route::get('productos','ProductoController@verProductos');
     Route::get('productos/insertarProductos','ProductoController@insertarProducto')->middleware('auth');
     Route::get('productos/{imagen}','ProductoController@getImage');
-    Route::get('verUnProducto/{id}','ProductoController@getShow')->where('id','[0-9]+')->middleware('auth');
+    Route::get('verUnProducto/{id}','ProductoController@getShow');
     Route::get('productos/eliminar/{id}','ProductoController@eliminarProducto')->where('id','[0-9]+')->middleware('auth');
     Route::get('productos/editar/{id}','ProductoController@editarProducto')->where('id','[0-9]+')->middleware('auth');
     Route::post('productos/editar/submit/{id}','ProductoController@update')->where('id','[0-9]+')->middleware('auth');

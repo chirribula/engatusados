@@ -55,9 +55,12 @@
 
                                 <h3 class="text-center m-4  mt-5 mb-5 text-secondary">TODOS LOS PRODUCTOS</h3>
 
-                                @if (session('status'))
-                                    <p style="color:#6c757d; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
-                                 @endif
+                                @if (session()->has('status'))
+                                    <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{session('status')}}
+                                    </div>
+                                @endif
 
                                 <div class="row">
                                     @foreach ($productos as $producto)
@@ -71,9 +74,20 @@
                                                             </div>
                                                         </div>
                                                     </a>
+                                                    <span class="text-white">{{$cont++}}</span>
                                                 </div>
                                             </a>
                                      @endforeach
+                                     @if($cont==0)
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6 justify-content-between" >
+                                            <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
+                                                NO HAY PRODUCTOS REGISTRADOS
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                     @endif
+                                     <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
                                 <div class="row">
                                     <div class="col-5"></div>
@@ -93,8 +107,12 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h3 class="text-center m-4  mt-5 mb-5 text-secondary">{{$categoria->nombre}} </h3>
-                                    @if (session('status'))
-                                        <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+
+                                    @if (session()->has('status'))
+                                        <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                            {{session('status')}}
+                                        </div>
                                     @endif
                                     <div class="row">
                                         @foreach ($productos as $producto)
@@ -108,11 +126,21 @@
                                                                     <p class="card-text">{{$producto->precio}} €</p>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </a> <span class="text-white">{{$cont++}}</span>
                                                     </div>
                                                 </a>
                                             @endif
                                         @endforeach
+                                        @if($cont==0)
+                                            <div class="col-md-3"></div>
+                                            <div class="col-md-6 justify-content-between" >
+                                                <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
+                                                    NO HAY PRODUCTOS EN LA CATEGORÍA DE {{$categoria->nombre}}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3"></div>
+                                        @endif
+                                        <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                     </div>
                                     <div class="row">
                                         <div class="col-5"></div>

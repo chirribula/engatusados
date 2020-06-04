@@ -17,9 +17,21 @@
     @include('includes.header')
         <div class="container-fluid" >
 
+            @if (session()->has('status'))
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 justify-content-between" >
+                    <div class="alert alert-success alert-dismissable  mt-4 mb-2 text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{session('status')}}
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            @endif
+
 
             <div class="row mb-5">
-
                <div class="col-sm-8 mt-4 mb-3 pb-5" max-height="700px">
 
                     <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >

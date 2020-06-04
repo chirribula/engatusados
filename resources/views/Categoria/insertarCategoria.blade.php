@@ -20,6 +20,17 @@
                 <h3 class="text-center mt-5 mb-5 text-secondary">AÑADIR UNA CATEGORIA</h3>
                 <form action="{{action('CategoriaController@save')}}" method="POST" enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <p>Corrige el siguiente error:</p>
+                            <ul>
+                                @foreach ($errors->all() as $message)
+                                    <li>El nombre de la categoría ya existe</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
 
                     <div class="form-row">
                         <div class="form-group col-md-4">

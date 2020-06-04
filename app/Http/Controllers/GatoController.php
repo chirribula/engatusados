@@ -63,8 +63,9 @@ class GatoController extends Controller
     }
 
     public function verGatos(){
-        $gatos = DB::table('gatos')->paginate(4);                   //paginate para que haga la paginación a partir de 4, añadir a la vista links
-        return view('Gato.gatos',['gatos'=>$gatos]);
+        $gatos = DB::table('gatos')->paginate(4);
+        $cont=0;                  //paginate para que haga la paginación a partir de 4, añadir a la vista links
+        return view('Gato.gatos',['gatos'=>$gatos, 'cont'=>$cont]);
     }
 
     public function getImage($filename){
@@ -136,7 +137,7 @@ class GatoController extends Controller
         }
 
         $gato->save();
-        return redirect()->action("GatoController@verGatos")->with('status', $gato->nombre.' Gato insertado correctamente');
+        return redirect()->action("GatoController@getShow",$gato->id)->with('status', $gato->nombre. ' creado correctamente');
     }
 
     }

@@ -51,32 +51,45 @@
 
                                 <h3 class="text-center m-4  mt-5 mb-5 text-secondary">GATOS ENCONTRADOS</h3>
 
-                                @if (session('status'))
-                                    <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
-                                 @endif
-
-                                <div class="row">
+                                @if (session()->has('status'))
+                                <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    {{session('status')}}
+                                </div>
+                                @endif
+                                <div class="row" style="min-height:400px">
                                     @foreach ($gatos as $gato)
-                                         @if($gato->estado=='Encontrado')
-                                            <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
-                                                <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
-                                                        <div class="card" >
-                                                            <img class="card-img-top" src="{{action('GatoController@getImage',['imagen'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
-                                                            <div class="card-body">
-                                                                <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                            </div>
+                                        @if($gato->estado=='Encontrado')
+                                        <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
+                                            <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
+                                                    <div class="card" >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <div class="card-body">
+                                                            <h5 class="card-title ">{{$gato->nombre}}</h5>
+                                                            <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
                                                         </div>
-                                                    </a>
-                                                </div>
-                                            </a>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </a>
+                                        <span class="text-white">{{$cont++}}</span>
                                         @endif
-                                     @endforeach
-
+                                    @endforeach
+                                    @if($cont==0)
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6 justify-content-between" >
+                                            <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
+                                                NO HAY GATOS REGISTRADOS ENCONTRADOS
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    @endif
+                                    <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
                                 <div class="row">
                                     <div class="col-5"></div>
                                     <div class="col-2 ml-5 mt-5 text-center">
-                                         <div class="clearFix">{{$gatos->links()}}</div>
+                                        <div class="clearFix">{{$gatos->links()}}</div>
                                     </div>
                                     <div class="col-5"></div>
                                 </div>
@@ -93,10 +106,13 @@
 
                                 <h3 class="text-center m-4 mt-5 mb-5 text-secondary">GATOS PERDIDOS</h3>
 
-                                @if (session('status'))
-                                    <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
+                                @if (session()->has('status'))
+                                    <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{session('status')}}
+                                    </div>
                                 @endif
-                                <div class="row">
+                                <div class="row" style="min-height:400px">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Perdido')
                                          <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
@@ -111,8 +127,19 @@
                                                 </a>
                                             </div>
                                         </a>
+                                        <span class="text-white">{{$cont++}}</span>
                                         @endif
                                      @endforeach
+                                     @if($cont==0)
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6 justify-content-between" >
+                                            <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
+                                                NO HAY GATOS REGISTRADOS EN ADOPCIÓN
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                     @endif
+                                     <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
                                 <div class="row">
                                     <div class="col-5"></div>
@@ -132,29 +159,39 @@
                             <div class="col-md-12">
 
                                 <h3 class="text-center m-4 mt-5 mb-5 text-secondary">GATOS EN ADOPCIÓN</h3>
-                                @if (session('status'))
-                                    <p style="color:grey; font-size:20px;">{{session('status')}}</p>  <!-- si existe el estado muestra el mensaje -->
-                                 @endif
-                                <div class="row">
+                                @if (session()->has('status'))
+                                    <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{session('status')}}
+                                    </div>
+                                @endif
+                                <div class="row"  style="min-height:400px">
                                     @foreach ($gatos as $gato)
                                          @if($gato->estado=='Adopción')
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                 <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
                                                     <div class="card" >
-
                                                         <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato {{$gato->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
-
-
-                                                        <div class="card-body">
+                                                      <div class="card-body">
                                                         <h5 class="card-title ">{{$gato->nombre}}</h5>
                                                             <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
                                                         </div>
                                                     </div>
-
                                                 </a>
                                             </div>
+                                            <span class="text-white">{{$cont++}}</span>
                                         @endif
                                      @endforeach
+                                     @if($cont==0)
+                                     <div class="col-md-3"></div>
+                                     <div class="col-md-6 justify-content-between" >
+                                        <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
+                                            NO HAY GATOS REGISTRADOS EN ADOPCIÓN
+                                        </div>
+                                     </div>
+                                     <div class="col-md-3"></div>
+                                     @endif
+                                     <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
                                 <div class="row">
                                     <div class="col-5"></div>
