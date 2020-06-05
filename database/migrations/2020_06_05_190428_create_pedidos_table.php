@@ -15,6 +15,11 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('usuarioId');   //clave foránea de la tabla usuario
+            $table->unsignedBigInteger('productoId');   //clave foránea de la tabla producto
+            $table->integer('unidades');
+            $table->float('total', 8, 2);
+            $table->date('fecha');
             $table->timestamps();
         });
     }

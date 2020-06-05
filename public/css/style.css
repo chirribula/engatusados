@@ -1,43 +1,72 @@
-footer {
-    background-image: url('../img/fondo.jpg');
-}
-
-footer {
-    border-top: 2px solid grey;
-}
-
-#cabecera {
-    font-size: 60px;
-    color: white;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-#fondo {
-    background-image: url('../img/gatoPortada.jpg');
-}
-
-.pagination {
-    color: #ffc107!important;
-}
-
-.pagination>li>a,
-.pagination>li>span {
-    color: white!important;
-    background-color: #17a2b8!important;
-}
-
-.pagination>.active>a,
-.pagination>.active>a:focus,
-.pagination>.active>a:hover,
-.pagination>.active>span,
-.pagination>.active>span:focus,
-.pagination>.active>span:hover {
-    color: white!important;
-    background-color: #17a2b8!important;
-}
-
-.page-item.active,
-.page-link {
-    color: white!important;
-    background-color: #17a2b8!important;
-}
+    footer {
+        background-image: url('../img/fondo.jpg');
+    }
+    
+    footer {
+        border-top: 2px solid grey;
+    }
+    
+    #cabecera {
+        font-size: 60px;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+    }
+    
+    #fondo {
+        background-image: url('../img/gatoPortada.jpg');
+    }
+    
+    .pagination {
+        color: #ffc107!important;
+    }
+    
+    .pagination>li>a,
+    .pagination>li>span {
+        color: white!important;
+        background-color: #17a2b8!important;
+    }
+    
+    .pagination>.active>a,
+    .pagination>.active>a:focus,
+    .pagination>.active>a:hover,
+    .pagination>.active>span,
+    .pagination>.active>span:focus,
+    .pagination>.active>span:hover {
+        color: white!important;
+        background-color: #17a2b8!important;
+    }
+    
+    .page-item.active,
+    .page-link {
+        color: white!important;
+        background-color: #17a2b8!important;
+    }
+    /*  stripe */
+    /**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+    
+    .StripeElement {
+        box-sizing: border-box;
+        height: 40px;
+        padding: 10px 12px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        background-color: white;
+        box-shadow: 0 1px 3px 0 #e6ebf1;
+        -webkit-transition: box-shadow 150ms ease;
+        transition: box-shadow 150ms ease;
+    }
+    
+    .StripeElement--focus {
+        box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+    
+    .StripeElement--invalid {
+        border-color: #fa755a;
+    }
+    
+    .StripeElement--webkit-autofill {
+        background-color: #fefde5 !important;
+    }

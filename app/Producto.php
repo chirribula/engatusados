@@ -18,4 +18,8 @@ class Producto extends Model
         return $this->belongsTo('App\Categoria', 'categoria');  //usuarioId es la clave foránea en la tabla gatos
     }
 
+    public function pedidos(){
+        return $this->hasMany('App\Pedidos')->orderBy('id','desc');
+    }
+
 }

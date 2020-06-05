@@ -25,6 +25,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Gato')->orderBy('id','desc');
     }
 
+    public function pedidos(){
+        return $this->hasMany('App\Pedido')->orderBy('id','desc');
+    }
+
 
 
     /**

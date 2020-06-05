@@ -34,4 +34,9 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'stripe' => [
+        'key' => env('STRIPE_KEY'),                     /* para pagos con stripe */
+        'secret' => env('STRIPE_SECRET')
+]
+
 ];

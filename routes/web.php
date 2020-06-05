@@ -62,8 +62,13 @@ Route::group(['prefix'=>'Engatusados/Tienda'], function(){
     Route::get('productos/eliminar/{id}','ProductoController@eliminarProducto')->where('id','[0-9]+')->middleware('auth');
     Route::get('productos/editar/{id}','ProductoController@editarProducto')->where('id','[0-9]+')->middleware('auth');
     Route::post('productos/editar/submit/{id}','ProductoController@update')->where('id','[0-9]+')->middleware('auth');
+    Route::get('productos/comprar/{id}','ProductoController@comprarProducto')->where('id','[0-9]+')->middleware('auth');
+    Route::post('productos/comprobarCompra/{id}','ProductoController@comprobarCompra')->where('id','[0-9]+')->middleware('auth');
+});
 
+Route::group(['prefix'=>'Engatusados/Pedido'], function(){
 
+    Route::get('forumarioPedido','PedidoController@forumarioPedido')->where('id','[0-9]+')->middleware('auth');
 });
 
 Route::group(['prefix'=>'Engatusados/Categoria'], function(){

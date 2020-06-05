@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
-    //
+    public function verProductos(){
+
+
+
+    }
 }
