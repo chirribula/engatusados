@@ -45,35 +45,40 @@
 
                 <div class="tab-content mb-5 " id="myTabContent">
 
-                    <div class="tab-pane fade show active" id="encontrados" role="tabpanel" aria-labelledby="encontrados-tab">
+                    <div class="tab-pane fade show active pb-5 mb-5" id="encontrados" role="tabpanel" aria-labelledby="encontrados-tab">
                         <div class="row">
                             <div class="col-md-12">
 
                                 <h3 class="text-center m-4  mt-5 mb-5 text-secondary">GATOS ENCONTRADOS</h3>
 
                                 @if (session()->has('status'))
-                                <div class="alert alert-success alert-dismissable mt-4 mb-2" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                    {{session('status')}}
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8 justify-content-between" >
+                                        <div class="alert alert-success alert-dismissable  mt-4 mb-2 text-center" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                            {{session('status')}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
                                 </div>
                                 @endif
+
                                 <div class="row" style="min-height:400px">
-                                    @foreach ($gatos as $gato)
-                                        @if($gato->estado=='Encontrado')
-                                        <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
+                                    @foreach ($encontrados as $encontrado)
+                                        <a href="{{ action('GatoController@getShow', ['id' => $encontrado->id]) }}" style="text-decoration: none; color:black;">
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
-                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$encontrado->imagen])}}" alt="gato gato {{$encontrado->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                         <div class="card-body">
-                                                            <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                            <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
+                                                            <h5 class="card-title ">{{$encontrado->nombre}}</h5>
+                                                            <p>Edad: {{$encontrado->edad}} , {{$encontrado->sexo}}</p>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </a><span class="text-white">{{$cont++}}</span>
                                             </div>
                                         </a>
-                                        <span class="text-white">{{$cont++}}</span>
-                                        @endif
+
                                     @endforeach
                                     @if($cont==0)
                                         <div class="col-md-3"></div>
@@ -86,13 +91,7 @@
                                     @endif
                                     <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
-                                <div class="row">
-                                    <div class="col-5"></div>
-                                    <div class="col-2 ml-5 mt-5 text-center">
-                                        <div class="clearFix">{{$gatos->links()}}</div>
-                                    </div>
-                                    <div class="col-5"></div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -100,7 +99,7 @@
 
                      <!-- Perdidos -->
 
-                    <div class="tab-pane fade" id="perdidos" role="tabpanel" aria-labelledby="perdidos-tab">
+                    <div class="tab-pane fade pb-5 mb-5" id="perdidos" role="tabpanel" aria-labelledby="perdidos-tab">
                         <div class="row">
                             <div class="col-md-12">
 
@@ -113,48 +112,40 @@
                                     </div>
                                 @endif
                                 <div class="row" style="min-height:400px">
-                                    @foreach ($gatos as $gato)
-                                         @if($gato->estado=='Perdido')
-                                         <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
+                                    @foreach ($perdidos as $perdido)
+                                         <a href="{{ action('GatoController@getShow', ['id' => $perdido->id]) }}" style="text-decoration: none; color:black;">
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
                                                     <div class="card" >
-                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$perdido->imagen])}}" alt="gato gato {{$perdido->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                         <div class="card-body">
-                                                            <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                            <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
+                                                            <h5 class="card-title ">{{$perdido->nombre}}</h5>
+                                                            <p>Edad: {{$perdido->edad}} , {{$perdido->sexo}}</p>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </a> <span class="text-white">{{$cont++}}</span>
                                             </div>
                                         </a>
-                                        <span class="text-white">{{$cont++}}</span>
-                                        @endif
+
                                      @endforeach
                                      @if($cont==0)
                                         <div class="col-md-3"></div>
                                         <div class="col-md-6 justify-content-between" >
                                             <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
-                                                NO HAY GATOS REGISTRADOS EN ADOPCIÓN
+                                                NO HAY GATOS PERDIDOS
                                             </div>
                                         </div>
                                         <div class="col-md-3"></div>
                                      @endif
                                      <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
-                                <div class="row">
-                                    <div class="col-5"></div>
-                                    <div class="col-2 ml-5 mt-5 text-center">
-                                         <div class="clearFix">{{$gatos->links()}}</div>
-                                    </div>
-                                    <div class="col-5"></div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
 
                      <!-- Encontrados -->
 
-                    <div class="tab-pane fade" id="adopcion" role="tabpanel" aria-labelledby="adopcion-tab">
+                    <div class="tab-pane fade pb-5 mb-5" id="adopcion" role="tabpanel" aria-labelledby="adopcion-tab">
                         <div class="row">
                             <div class="col-md-12">
 
@@ -166,21 +157,19 @@
                                     </div>
                                 @endif
                                 <div class="row"  style="min-height:400px">
-                                    @foreach ($gatos as $gato)
-                                         @if($gato->estado=='Adopción')
+                                    @foreach ($adopciones as $adopcion)
                                             <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
-                                                <a href="{{ action('GatoController@getShow', ['id' => $gato->id]) }}" style="text-decoration: none; color:black;">
+                                                <a href="{{ action('GatoController@getShow', ['id' => $adopcion->id]) }}" style="text-decoration: none; color:black;">
                                                     <div class="card" >
-                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" alt="gato {{$gato->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
+                                                        <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$adopcion->imagen])}}" alt="gato {{$adopcion->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                       <div class="card-body">
-                                                        <h5 class="card-title ">{{$gato->nombre}}</h5>
-                                                            <p>Edad: {{$gato->edad}} , {{$gato->sexo}}</p>
+                                                        <h5 class="card-title ">{{$adopcion->nombre}}</h5>
+                                                            <p>Edad: {{$adopcion->edad}} , {{$adopcion->sexo}}</p>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </a><span class="text-white">{{$cont++}}</span>
                                             </div>
-                                            <span class="text-white">{{$cont++}}</span>
-                                        @endif
+
                                      @endforeach
                                      @if($cont==0)
                                      <div class="col-md-3"></div>
@@ -193,13 +182,7 @@
                                      @endif
                                      <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
-                                <div class="row">
-                                    <div class="col-5"></div>
-                                    <div class="col-2 ml-5 mt-5 text-center">
-                                         <div class="clearFix">{{$gatos->links()}}</div>
-                                    </div>
-                                    <div class="col-5"></div>
-                                </div>
+
 
                             </div>
                         </div>

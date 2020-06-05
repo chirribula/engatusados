@@ -36,8 +36,12 @@ Route::group(['prefix'=>'Engatusados'], function(){
     Route::post('insertarGato/Submit','GatoController@save')->middleware('auth');
     Route::get('editarGato/{id}','GatoController@editarGato')->where('id','[0-9]+')->middleware('auth');
     Route::post('editarGato/submit/{id}','GatoController@updateGato')->where('id','[0-9]+')->middleware('auth');
+    Route::get('borrarGato/{id}','GatoController@borrarGato')->where('id', '[0-9]+')->middleware('auth');
 
 });
+
+
+
 
 
 Route::group(['prefix'=>'Engatusados/Usuario'], function(){

@@ -90,20 +90,34 @@
                                 <td >Descripción:</td>
                                 <td>{{$gato->descripcion}}</td>
                             </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                @if($gato->estado=="Perdido")
+                                        <p style="color:red;font-weight:bolder; font-size:20px;">PERDIDO</p>
+                                @elseif($gato->estado=="Encontrado")
+                                        <p style="color:green; font-weight:bolder; font-size:20px;">ENCONTRADO</p>
+                                @elseif($gato->estado=="Adopción")
+                                        <p style="color:blue; font-weight:bolder; font-size:20px;">ADOPCIÓN</p>
+                                @endif
+                            </td>
+                         </tr>
+
+                        <tr>
+                            <td>
+                                @if($gato->usuarioId==auth()->id() || auth()->user()->rol=='admin')
+                                        <a href="{{ action('GatoController@editarGato', ['id' => $gato->id] ) }}" class="btn btn-warning">Modificar gato</a>
+                                @endif
+                            </td>
+                            <td>
+                                @if($gato->usuarioId==auth()->id() || auth()->user()->rol=='admin')
+                                        <a href="{{ action('GatoController@borrarGato', ['id' => $gato->id] ) }}" class="btn btn-danger">Eliminar gato</a>
+                                @endif
+                            </td>
+                        </tr>
+
                         </tbody>
                     </table>
-
-                   @if($gato->estado=="Perdido")
-                        <p style="color:red;font-weight:bolder; font-size:20px;">PERDIDO</p>
-                   @elseif($gato->estado=="Encontrado")
-                        <p style="color:green; font-weight:bolder; font-size:20px;">ENCONTRADO</p>
-                   @elseif($gato->estado=="Adopción")
-                        <p style="color:blue; font-weight:bolder; font-size:20px;">ADOPCIÓN</p>
-                   @endif
-
-                   @if($gato->usuarioId==auth()->id())
-                        <a href="{{ action('GatoController@editarGato', ['id' => $gato->id] ) }}" class="btn btn-warning">Modificar gato</a>
-                   @endif
 
                 </div>
 

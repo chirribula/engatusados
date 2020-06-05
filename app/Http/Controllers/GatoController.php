@@ -63,14 +63,25 @@ class GatoController extends Controller
     }
 
     public function verGatos(){
-        $gatos = DB::table('gatos')->paginate(4);
-        $cont=0;                  //paginate para que haga la paginación a partir de 4, añadir a la vista links
-        return view('Gato.gatos',['gatos'=>$gatos, 'cont'=>$cont]);
+        $encontrados=Gato::all()
+        ->where('estado', '=', 'Encontrado');
+        //$encontrados->paginate(5);
+
+        $perdidos=Gato::all()
+        ->where('estado', '=', 'Perdido');
+        //$perdidos->paginate(5);
+
+        $adopciones=Gato::all()
+        ->where('estado', '=', 'Adopción');
+        //$adopciones->paginate(5);
+
+        $cont=0;                                    //paginate para que haga la paginación a partir de 4, añadir a la vista links
+        return view('Gato.gatos',[ 'cont'=>$cont , 'perdidos'=>$perdidos  , 'adopciones'=>$adopciones, 'encontrados'=>$encontrados]);
     }
 
     public function getImage($filename){
         $file = Storage::disk('gatos')->get($filename);             //necesario para que se muestre la imagen, crear discos virtuales y añadir en archivo gilesystems
-        return new Response($file,200);
+        return new Response($file,500);
     }
 
     public function updateGato(Request $request,$id){
@@ -104,6 +115,14 @@ class GatoController extends Controller
         $gato->save();
         return redirect()->action("GatoController@getShow",$gato->id)->with('status', $gato->nombre. ' actualizado correctamente');
     }
+
+        public function borrarGato($id){
+            $gato = Gato::findOrFail($id);
+            $gato->delete();
+            return redirect()->action('GatoController@verGatos')->with('status' , $gato->nombre .' borrado correctamente');
+        }
+
+
 
 
     public function save(Request $request){

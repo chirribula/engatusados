@@ -34,13 +34,13 @@
             <div class="row mb-4 mt-2">
 
                 <div class="col-sm-2 mt-4 mb-3 pb-5" ></div>
-               <div class="col-sm-4 mt-4 mb-3 pb-5" max-height="700px">
+               <div class="col-sm-4 mt-5 mb-3 pb-5" max-height="700px">
 
                     <img src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >
 
                 </div>
 
-                <div class="col-sm-4 p-3 mt-5 mb-5 pb-5 text-center">
+                <div class="col-sm-4 p-3 mt-3 mb-5 pb-5 text-center">
                     <table class="table ">
                         <thead >
                             <tr>
