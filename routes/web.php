@@ -69,6 +69,7 @@ Route::group(['prefix'=>'Engatusados/Tienda'], function(){
 Route::group(['prefix'=>'Engatusados/Pedido'], function(){
 
     Route::get('forumarioPedido','PedidoController@forumarioPedido')->where('id','[0-9]+')->middleware('auth');
+    Route::post('forumarioPedido/finalizar/{id}/{unidades}','PedidoController@finalizarPedido')->where('id','[0-9]+')->middleware('auth');
 });
 
 Route::group(['prefix'=>'Engatusados/Categoria'], function(){

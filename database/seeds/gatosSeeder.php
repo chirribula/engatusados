@@ -19,7 +19,7 @@ class gatosSeeder extends Seeder
 
         for ($i=0; $i < 5; $i++) {
             DB::table('gatos')->insert(array(
-                'usuarioId' => 15,
+                'usuarioId' => 1,
                 'nombre' => 'pepe',
                  'edad'  => '3 años',
                 'raza'  => 'siames',
@@ -39,7 +39,7 @@ class gatosSeeder extends Seeder
         }
         for ($i=0; $i < 5; $i++) {
             DB::table('gatos')->insert(array(
-                'usuarioId' => 15,
+                'usuarioId' => 1,
                 'nombre' => 'pepe',
                  'edad'  => '3 años',
                 'raza'  => 'siames',
@@ -60,7 +60,7 @@ class gatosSeeder extends Seeder
 
         for ($i=0; $i < 5; $i++) {
             DB::table('gatos')->insert(array(
-                'usuarioId' => 15,
+                'usuarioId' => 1,
                 'nombre' => 'pepe',
                  'edad'  => '3 años',
                 'raza'  => 'siames',

@@ -10,7 +10,7 @@ class Pedido extends Model
     protected $table = 'pedidos';
 
     protected $fillable = [
-        'usuarioId', 'productoId', 'unidades', 'total', 'fecha'
+        'usuarioId', 'productoId', 'unidades', 'total'
     ];
 
     //Relación muchos a uno

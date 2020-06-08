@@ -113,7 +113,7 @@
                         <div class="form-group col-md-3"><button type="submit" name="submit" class="btn btn-info">Insertar Producto</button>
                         </div>
                         <div class="form-group col-md-4">
-                        </div>
+                    </div>
 
                 </form>
             </div>

@@ -19,7 +19,6 @@ class CreatePedidosTable extends Migration
             $table->unsignedBigInteger('productoId');   //clave foránea de la tabla producto
             $table->integer('unidades');
             $table->float('total', 8, 2);
-            $table->date('fecha');
             $table->timestamps();
         });
     }

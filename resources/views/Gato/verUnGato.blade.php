@@ -105,13 +105,21 @@
 
                         <tr>
                             <td>
-                                @if($gato->usuarioId==auth()->id() || auth()->user()->rol=='admin')
-                                        <a href="{{ action('GatoController@editarGato', ['id' => $gato->id] ) }}" class="btn btn-warning">Modificar gato</a>
+                                @if(Route::has('login'))          <!--Si no está logueado ni es admin no muestra el botón-->
+                                    @auth
+                                        @if($gato->usuarioId==auth()->id() )
+                                                <a href="{{ action('GatoController@editarGato', ['id' => $gato->id] ) }}" class="btn btn-warning">Modificar gato</a>
+                                        @endif
+                                    @endauth
                                 @endif
                             </td>
                             <td>
-                                @if($gato->usuarioId==auth()->id() || auth()->user()->rol=='admin')
-                                        <a href="{{ action('GatoController@borrarGato', ['id' => $gato->id] ) }}" class="btn btn-danger">Eliminar gato</a>
+                                @if(Route::has('login'))          <!--Si no está logueado ni es admin no muestra el botón-->
+                                    @auth
+                                        @if($gato->usuarioId==auth()->id() || auth()->user()->rol=='admin')
+                                                <a href="{{ action('GatoController@borrarGato', ['id' => $gato->id] ) }}" class="btn btn-danger">Eliminar gato</a>
+                                        @endif
+                                    @endauth
                                 @endif
                             </td>
                         </tr>

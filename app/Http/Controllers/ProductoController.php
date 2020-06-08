@@ -55,12 +55,7 @@ class ProductoController extends Controller
             return redirect()->action('ProductoController@comprarProducto' , $producto->id)->with('status' , 'Sólo hay '.$producto->stock.' unidades de ' . $producto->nombre );
         }else{
             $total=$unidades*$producto->precio;
-            $nuevoStock=$producto->stock-$unidades;
-            DB::table('productos')->where('id',$id)      //para restar las unidades a la tabla
-            ->update([
-                'stock'=>$nuevoStock
-            ]);
-            return view('Pedido.formularioPedido',['producto'=>$producto, 'total'=>$total]);
+            return view('Pedido.formularioPedido',['producto'=>$producto, 'total'=>$total, 'unidades'=>$unidades]);
         }
 
     }

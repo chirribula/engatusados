@@ -68,6 +68,19 @@
                                 </div>
                                 @endif
 
+                                @if (session()->has('status2'))
+                                <div class="row">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8 justify-content-between" >
+                                        <div class="alert alert-success alert-dismissable  mt-4 mb-2 text-center" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                            {{session('status2')}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                                @endif
+
                                 <div class="row">
                                     @foreach ($productos as $producto)
                                             <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">

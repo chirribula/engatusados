@@ -23,57 +23,50 @@
             <div class="col-sm-6 p-3 mt-3 mb-5 pb-5 text-center">
 
                 <h3 class="text-center mt-5 mb-5 text-info">FORMULARIO DEL PEDIDO</h3>
-                <form action="" method="POST"  enctype="multipart/form-data" style="height: 600px">
+                <form action="{{ action('PedidoController@finalizarPedido', ['id' => $producto->id , 'unidades' => $unidades]) }}" method="POST"  enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
 
-                    <script src="https://js.stripe.com/v3/"></script>
-
-                    <form action="/charge" method="post" id="payment-form">
-                      <div class="form-row">
-                        <input id="card-holder-name" type="text">
-
-                        <!-- Stripe Elements Placeholder -->
-                        <div id="card-element"></div>
-
-                        <button id="card-button">
-                            Process Payment
-                        </button>
-
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <p>Precio total</p>
+                            <div class="form-group col-md-12 mb-5">
+                            <h5 class="text-secondary">Precio total: {{$total}} €</h5>
+
                             </div>
-                            <div class="form-group col-md-6">
-                                <p>{{$total}} €</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12 mb-5">
+                                <label for="nombre">{{ __('Número tarjeta:') }}</label>
+
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <input type="number" maxlength="4" style="width:90%" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <input type="number" maxlength="4" style="width:90%" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <input type="number" maxlength="4" style="width:90%" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+
+                            </div>
+                            <div class="form-group col-md-3">
+                                <input type="number" maxlength="4" style="width:90%" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                            </div>
+                        </div>
+                        <div class="form-row mt-5">
+                            <div class="form-group col-md-4">
+                            </div>
+                            <div class="form-group col-md-4"><button type="submit" name="submit" class="btn btn-info">Comprar Producto</button>
+                            </div>
+                            <div class="form-group col-md-4">
                         </div>
 
 
-
-
                     </form>
-
-
-                    <script src="https://js.stripe.com/v3/"></script>
-
-                    <script>
-                        const stripe = Stripe('stripe-public-key');
-
-                        const elements = stripe.elements();
-                        const cardElement = elements.create('card');
-
-                        cardElement.mount('#card-element');
-                    </script>
-
-
-
-
-
-
             </div>
-            <div class="col-sm-3 mt-4 mb-3 pb-5"></div>
 
-
+    </div>
     @include('includes.footer')
 </body>
 </html>
