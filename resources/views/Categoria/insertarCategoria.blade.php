@@ -16,8 +16,14 @@
 <body>
     @include('includes.header')
 
-            <div class="container mb-5">
-                <h3 class="text-center mt-5 mb-5 text-secondary">AÑADIR UNA CATEGORIA</h3>
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h3 class="text-center mb-5 text-secondary">AÑADIR UNA CATEGORIA</h3>
                 <form action="{{action('CategoriaController@save')}}" method="POST" enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
                     @if (count($errors) > 0)
@@ -33,9 +39,9 @@
 
 
                     <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-12 text-center">
                             <label for="nombre">{{ __('Nombre:') }}</label>
-                            <input type="text" class="form-control" id="nombre" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}"  placeholder="Nombre de la categoría" autocomplete="nombre" autofocus required>
+                            <input type="text" class="form-control mt-4 mb-4" id="nombre" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}"  placeholder="Nombre de la categoría" autocomplete="nombre" autofocus required>
                             @error('nombre')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -43,9 +49,16 @@
                             @enderror
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-info">Añadir Categoría</button>
+                    <div class="form-row text-center">
+                        <div class="col-12">
+                            <button type="submit" name="submit " class="btn btn-info ">Añadir Categoría</button>
+                        </div>
+                    </div>
                 </form>
             </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
     @include('includes.footer')
 </body>
 </html>

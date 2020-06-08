@@ -18,8 +18,8 @@
     @include('includes.header')
         <div class="container-fluid">
             <div class="row mt-5">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-5 mt-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-4 mt-5">
                     <h2>¿Qué es engatusados? </h2>
                     <p class="mt-5">Engatusados es una web pensada y creada por una amante de los gatos, para intentar ayudar a
                         estos adorables animales por si se pierden, se encuentran o simplemente quieres adoptar.
@@ -29,8 +29,9 @@
                     </p>
 
                 </div>
+                <div class="col-md-1"></div>
 
-                <div class="col-sm-6" >
+                <div class="col-md-5" >
 
                     <img src="img/gatoPortada.jpg" width="1200px" alt="Fruteria" class="img-fluid rounded mx-auto d-block">
 

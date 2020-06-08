@@ -16,8 +16,14 @@
 <body>
     @include('includes.header')
 
-            <div class="container mb-5">
-                <h3 class="text-center mt-5 mb-5 text-info">AÑADIR UN GATO</h3>
+        <div class="container-fluid mb-5">
+            <div class="row">
+                <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                <h3 class="text-center mb-5 text-info">AÑADIR UN GATO</h3>
                 <form action="{{action('GatoController@save')}}" method="POST" enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
 
@@ -155,7 +161,9 @@
                     <button type="submit" name="submit" class="btn btn-info">Añadir Gato</button>
                 </form>
             </div>
-
+            <div class="col-md-2"></div>
+        </div>
+    </div>
 
     @include('includes.footer')
 </body>

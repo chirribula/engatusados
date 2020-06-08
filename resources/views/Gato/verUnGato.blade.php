@@ -30,15 +30,17 @@
             </div>
             @endif
 
-
+            <div class="row">
+                <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+            </div>
             <div class="row mb-5">
-               <div class="col-sm-8 mt-4 mb-3 pb-5" max-height="700px">
+               <div class="col-sm-8 mt-2 mb-3 pb-5" max-height="700px">
 
                     <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >
 
                 </div>
 
-                <div class="col-sm-4 p-3 mt-1 mb-5 pb-5 text-center">
+                <div class="col-sm-4 mb-5 pb-5 text-center">
                     <table class="table ">
                         <thead >
                             <tr>
