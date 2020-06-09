@@ -19,7 +19,7 @@
             @if (session()->has('status'))
                 <div class="row">
                     <div class="col-md-3"></div>
-                    <div class="col-md-6 justify-content-between" >
+                    <div class="col-md-6 justify-content-between">
                         <div class="alert alert-danger alert-dismissable  mt-4 mb-2 text-center" role="alert">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                             {{session('status')}}
@@ -28,10 +28,13 @@
                     <div class="col-md-3"></div>
                 </div>
                 @endif
-            <div class="row mb-4 mt-2">
-                <div class="col-sm-3 mt-4 mb-3 pb-5"></div>
-                <div class="col-sm-6 p-3 mt-3 mb-5 pb-5 text-center">
-                    <table class="table">
+                <div class="row">
+                    <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+                </div>
+            <div class="row mb-4">
+                <div class="col-sm-3  mb-3 pb-5"></div>
+                <div class="col-sm-6  mb-5 pb-5">
+                    <table class="table  text-center">
                         <thead>
                             <tr>
                                 <th scope="col" colspan="2">
@@ -60,7 +63,7 @@
                                 <td>{{$producto->tamaño}}</td>
                             </tr>
 
-                            <tr class="table-secondary">>
+                            <tr class="table-secondary">
                                 <td>MARCA:</td>
                                 <td>{{$producto->marca}}</td>
                             </tr>
@@ -87,7 +90,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-sm-3 mt-4 mb-3 pb-5" ></div>
+                <div class="col-sm-3  mb-3 pb-5" ></div>
             </div>
         </div>
     @include('includes.footer')

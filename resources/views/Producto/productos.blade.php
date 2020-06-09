@@ -53,7 +53,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                                <h3 class="text-center m-4  mt-5 mb-5 text-secondary">TODOS LOS PRODUCTOS</h3>
+                                <h3 class="text-center m-4  mt-4 mb-4 text-secondary">TODOS LOS PRODUCTOS</h3>
 
                                 @if (session()->has('status'))
                                 <div class="row">
@@ -84,7 +84,7 @@
                                 <div class="row">
                                     @foreach ($productos as $producto)
                                             <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">
-                                                <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
+                                                <div class="col-md-4 col-sm-6 mb-4 text-center">
                                                         <div class="card" >
                                                             <img class="card-img-top" src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" alt="{{$producto->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                             <div class="card-body">
@@ -137,7 +137,7 @@
                                         @foreach ($productos as $producto)
                                             @if($producto->categoria==$categoria->id)
                                             <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">
-                                                <div class="col-xs-6 col-sm-4 col-md-3 mt-3 text-center" >
+                                                <div class="col-md-4 col-sm-6 mb-4 text-center">
                                                             <div class="card" >
                                                                 <img class="card-img-top" src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" alt="{{$producto->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                                 <div class="card-body">

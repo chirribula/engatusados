@@ -17,10 +17,13 @@
 <body>
     @include('includes.header')
 
-    <div class="container mb-5">
-        <div class="row mb-4 mt-2">
-            <div class="col-sm-3 mt-4 mb-3 pb-5"></div>
-            <div class="col-sm-6 p-3 mt-3 mb-5 pb-5 text-center">
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+        </div>
+        <div class="row mb-4 ">
+            <div class="col-sm-4 mb-3 pb-5"></div>
+            <div class="col-sm-4 p-3  mb-5 pb-5 text-center">
 
                 <h3 class="text-center mt-5 mb-5 text-info">FORMULARIO DEL PEDIDO</h3>
                 <form action="{{ action('PedidoController@finalizarPedido', ['id' => $producto->id , 'unidades' => $unidades]) }}" method="POST"  enctype="multipart/form-data" style="height: 600px">
