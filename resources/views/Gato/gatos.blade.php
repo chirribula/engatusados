@@ -67,7 +67,7 @@
                                 <div class="row" style="min-height:400px">
                                     @foreach ($encontrados as $encontrado)
                                         <a href="{{ action('GatoController@getShow', ['id' => $encontrado->id]) }}" style="text-decoration: none; color:black;">
-                                            <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                            <div class="col-md-3 col-sm-6 mb-4 text-center">
                                                     <div class="card" >
                                                         <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$encontrado->imagen])}}" alt="gato gato {{$encontrado->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                         <div class="card-body">
@@ -114,7 +114,7 @@
                                 <div class="row" style="min-height:400px">
                                     @foreach ($perdidos as $perdido)
                                          <a href="{{ action('GatoController@getShow', ['id' => $perdido->id]) }}" style="text-decoration: none; color:black;">
-                                            <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                            <div class="col-md-3 col-sm-6 mb-4 text-center">
                                                     <div class="card" >
                                                         <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$perdido->imagen])}}" alt="gato gato {{$perdido->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                         <div class="card-body">
@@ -158,7 +158,7 @@
                                 @endif
                                 <div class="row"  style="min-height:400px">
                                     @foreach ($adopciones as $adopcion)
-                                        <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                        <div class="col-md-3 col-sm-6 mb-4 text-center">
                                                 <a href="{{ action('GatoController@getShow', ['id' => $adopcion->id]) }}" style="text-decoration: none; color:black;">
                                                     <div class="card" >
                                                         <img class="card-img-top" src="{{action('GatoController@getImage',['filename'=>$adopcion->imagen])}}" alt="gato {{$adopcion->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >

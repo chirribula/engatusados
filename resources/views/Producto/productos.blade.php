@@ -84,7 +84,7 @@
                                 <div class="row">
                                     @foreach ($productos as $producto)
                                             <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">
-                                                <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                                <div class="col-md-3 col-sm-6 mb-4 text-center">
                                                         <div class="card" >
                                                             <img class="card-img-top" src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" alt="{{$producto->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                             <div class="card-body">
@@ -137,7 +137,7 @@
                                         @foreach ($productos as $producto)
                                             @if($producto->categoria==$categoria->id)
                                             <a href="{{ action('ProductoController@getShow', ['id' => $producto->id]) }}" style="text-decoration: none; color:black;">
-                                                <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                                <div class="col-md-3 col-sm-6 mb-4 text-center">
                                                             <div class="card" >
                                                                 <img class="card-img-top" src="{{action('ProductoController@getImage',['filename'=>$producto->imagen])}}" alt="{{$producto->nombre}}" width="100%" height="350px;"  style="opacity:1;"  >
                                                                 <div class="card-body">

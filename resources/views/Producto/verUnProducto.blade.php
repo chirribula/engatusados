@@ -53,7 +53,7 @@
                         <tbody>
                             <tr class="table-secondary">
                                 <td>PRECIO:</td>
-                                <td>{{$producto->precio}}</td>
+                                <td>{{$producto->precio}} €</td>
                             </tr>
                             <tr>
                                 <td>MARCA:</td>
