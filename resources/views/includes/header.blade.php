@@ -1,27 +1,23 @@
 <header class="text-center bg-warning">
   <h1 id="cabecera"> ENGATUSADOS <i class="fas fa-cat"></i></h1>
 
-  <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link text-warning" href="{{action('GatoController@index')}}"><i class="fas fa-cat"></i>&nbsp; Inicio</a>
-        </li>
-    <!--    <li class="nav-item">
-          <a class="nav-link" href="{{action('GatoController@mostrarPerdidos')}}">Perdidos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{action('GatoController@mostrarEncontrados')}}">Encontrados</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{action('GatoController@mostrarAdopcion')}}">Adopción</a>
-        </li>
-      -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{action('GatoController@verGatos')}}">Gatos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{action('ProductoController@verProductos')}}">Tienda</a>
-        </li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <a class="navbar-brand " href="#"> <i class="fas fa-cat"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item Home">
+            <a class="nav-link text-warning" href="{{action('GatoController@index')}}">Inicio</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{action('GatoController@verGatos')}}">Gatos</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{action('ProductoController@verProductos')}}">Tienda</a>
+            </li>
 
       </ul>
 
@@ -54,8 +50,8 @@
 
                   @endauth
               @endif
-          </li>
-
       </ul>
+
+    </div>
     </nav>
 </header>

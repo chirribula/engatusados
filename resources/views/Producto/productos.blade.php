@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-5"></div>
-                                    <div class="col-2 ml-5 mt-5 text-center">
+                                    <div class="col-2 ml-5 mt-5 text-center ">
                                          <div class="clearFix">{{$productos->links()}}</div>
                                     </div>
                                     <div class="col-5"></div>

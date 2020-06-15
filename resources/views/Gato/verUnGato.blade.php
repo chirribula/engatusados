@@ -17,34 +17,36 @@
     @include('includes.header')
         <div class="container-fluid" >
 
-            @if (session()->has('status'))
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 justify-content-between" >
+                <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+            </div>
+
+            @if (session()->has('status'))
+            <div class="row mb-5">
+                <div class="col-md-2 mb-5"></div>
+                <div class="col-md-8 justify-content-between mb-5" >
                     <div class="alert alert-success alert-dismissable  mt-4 mb-2 text-center" role="alert">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         {{session('status')}}
                     </div>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-2 mb-5"></div>
             </div>
             @endif
 
-            <div class="row">
-                <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
-            </div>
-            <div class="row mb-5">
-               <div class="col-sm-8 mt-2 mb-3 pb-5" max-height="700px">
+            <div class="row mb-5 mt-2">
+                <div class="col-md-1 mt-2 mb-3 pb-5"></div>
+               <div class="col-md-7 mt-2 mb-3 pb-5 mr-2" max-height="700px">
 
-                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:700px" style="opacity:1"  >
+                    <img src="{{action('GatoController@getImage',['filename'=>$gato->imagen])}}" class="img-fluid" alt="poster de la pelicula" width="100%"   style="max-height:600px" style="opacity:1"  >
 
                 </div>
 
-                <div class="col-sm-4 mb-5 pb-5 text-center">
+                <div class="col-md-3 mb-5 ml-4 pb-5 text-center">
                     <table class="table ">
                         <thead >
                             <tr>
-                                <th scope="col" colspan="2"><h3 class="pb-4 pt-2 text-secondary">{{$gato->nombre}}</h3></th>
+                                <th scope="col" colspan="2"><h3 class="pb-42pt-2 text-secondary">{{$gato->nombre}}</h3></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,11 +98,11 @@
                         <tr>
                             <td colspan="2">
                                 @if($gato->estado=="Perdido")
-                                        <p style="color:red;font-weight:bolder; font-size:20px;">PERDIDO</p>
+                                        <span style="color:red;font-weight:bolder; font-size:20px;">PERDIDO</span>
                                 @elseif($gato->estado=="Encontrado")
-                                        <p style="color:green; font-weight:bolder; font-size:20px;">ENCONTRADO</p>
+                                        <span style="color:green; font-weight:bolder; font-size:20px;">ENCONTRADO</span>
                                 @elseif($gato->estado=="Adopción")
-                                        <p style="color:blue; font-weight:bolder; font-size:20px;">ADOPCIÓN</p>
+                                        <span style="color:blue; font-weight:bolder; font-size:20px;">ADOPCIÓN</span>
                                 @endif
                             </td>
                          </tr>
@@ -130,6 +132,7 @@
                     </table>
 
                 </div>
+                <div class="col-md-1 mt-2 mb-3 pb-5"></div>
 
             </div>
 <!--

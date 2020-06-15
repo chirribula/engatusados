@@ -28,10 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link" style="color:black" id="profile-tab" data-toggle="tab" href="#adopcion" role="tab" aria-controls="adopcion" aria-selected="false">En adopción</a>
                     </li>
-                    <li>
-
-                    </li>
-                    <li>
+                    <li class="nav-item">
                         <a href="{{action('GatoController@insertarGato')}}"><button type="button" class="btn btn-warning ">Insertar Gato</button></a>
                     </li>
                 </ul>
@@ -131,7 +128,7 @@
                                         <div class="col-md-3"></div>
                                         <div class="col-md-6 justify-content-between" >
                                             <div class="alert alert-secondary alert-dismissable p-5 mt-4 mb-2 text-center" role="alert">
-                                                NO HAY GATOS PERDIDOS
+                                                NO HAY GATOS REGISTRADOS PERDIDOS
                                             </div>
                                         </div>
                                         <div class="col-md-3"></div>

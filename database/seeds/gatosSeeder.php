@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;     //tres clases importadas para trabaj
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\Middleware\Authenticate;
+use App\Gato;
 
 class gatosSeeder extends Seeder
 {
@@ -17,66 +18,46 @@ class gatosSeeder extends Seeder
     public function run()
     {
 
-        for ($i=0; $i < 5; $i++) {
+
             DB::table('gatos')->insert(array(
+                array(
                 'usuarioId' => 1,
-                'nombre' => 'pepe',
+                'nombre' => 'Thor',
                  'edad'  => '3 años',
                 'raza'  => 'siames',
                 'sexo' => 'macho',
                 'colores' => 'marrón',
                 'descripcion'  => 'gatete mu bonico',
-                'imagen' => '1591186644gatitos.jpg',
+                'imagen' => '1590749654thor.jpg',
                 'castrado' => 'si',
                 'estado' => 'Perdido',
                 'direccion'=>'calle prim 20',
                 'localidad'=>'cádiz',
                 'provincia'=>'cadiz',
-                'created_at'=>'2020-06-04 14:46:07',
-                'updated_at'=>'2020-06-04 14:46:07'
 
-            ));
-        }
-        for ($i=0; $i < 5; $i++) {
-            DB::table('gatos')->insert(array(
+
+                ),
+            array(
                 'usuarioId' => 1,
-                'nombre' => 'pepe',
-                 'edad'  => '3 años',
-                'raza'  => 'siames',
-                'sexo' => 'macho',
-                'colores' => 'marrón',
-                'descripcion'  => 'gatete mu bonico',
-                'imagen' => '1591186644gatitos.jpg',
+                'nombre' => 'Caty',
+                 'edad'  => '4 años',
+                'raza'  => 'común eropeo',
+                'sexo' => 'hembra',
+                'colores' => 'gris y blanca',
+                'descripcion'  => 'Gata tímida',
+                'imagen' => '1591341981thor y caty.jpg',
                 'castrado' => 'si',
                 'estado' => 'Encontrado',
                 'direccion'=>'calle prim 20',
                 'localidad'=>'cádiz',
                 'provincia'=>'cadiz',
-                'created_at'=>'2020-06-04 14:46:07',
-                'updated_at'=>'2020-06-04 14:46:07'
 
+            )
             ));
+
+
+
+
         }
 
-        for ($i=0; $i < 5; $i++) {
-            DB::table('gatos')->insert(array(
-                'usuarioId' => 1,
-                'nombre' => 'pepe',
-                 'edad'  => '3 años',
-                'raza'  => 'siames',
-                'sexo' => 'macho',
-                'colores' => 'marrón',
-                'descripcion'  => 'gatete mu bonico',
-                'imagen' => '1591186644gatitos.jpg',
-                'castrado' => 'si',
-                'estado' => 'Adopción',
-                'direccion'=>'calle prim 20',
-                'localidad'=>'cádiz',
-                'provincia'=>'cadiz',
-                'created_at'=>'2020-06-04 14:46:07',
-                'updated_at'=>'2020-06-04 14:46:07'
-
-            ));
-        }
-    }
 }
