@@ -29,6 +29,13 @@
                 <form action="{{ action('PedidoController@finalizarPedido', ['id' => $producto->id , 'unidades' => $unidades]) }}" method="POST"  enctype="multipart/form-data" style="height: 600px">
                     {{csrf_field()}}
 
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12 ">
+                            <h5 class="text-secondary">Total unidades: {{$unidades}} </h5>
+
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-12 mb-5">
                             <h5 class="text-secondary">Precio total: {{$total}} €</h5>

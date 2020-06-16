@@ -97,7 +97,7 @@ class ProductoController extends Controller
         }
 
         $producto->save();
-        return redirect()->action("ProductoController@verProductos")->with('status', $producto->nombre.' insertado correctamente');
+        return redirect()->action("ProductoController@getShow", $producto->id)->with('status', $producto->nombre.' insertado correctamente');
     }
 
     public function update(Request $request,$id){

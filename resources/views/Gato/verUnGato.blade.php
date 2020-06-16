@@ -17,14 +17,10 @@
     @include('includes.header')
         <div class="container-fluid" >
 
-            <div class="row">
-                <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
-            </div>
-
             @if (session()->has('status'))
-            <div class="row mb-5">
-                <div class="col-md-2 mb-5"></div>
-                <div class="col-md-8 justify-content-between mb-5" >
+            <div class="row">
+                <div class="col-md-2 "></div>
+                <div class="col-md-8 justify-content-between " >
                     <div class="alert alert-success alert-dismissable  mt-4 mb-2 text-center" role="alert">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                         {{session('status')}}
@@ -33,6 +29,12 @@
                 <div class="col-md-2 mb-5"></div>
             </div>
             @endif
+
+            <div class="row">
+                <p class="col mt-3 text-warning"><a href="{{ URL::previous() }}"><button type="button" class="btn btn-warning text-white"><< Atrás</button></a></p>
+            </div>
+
+
 
             <div class="row mb-5 mt-2">
                 <div class="col-md-1 mt-2 mb-3 pb-5"></div>
