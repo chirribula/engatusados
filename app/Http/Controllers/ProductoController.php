@@ -16,7 +16,7 @@ use Illuminate\Auth\Middleware\Authenticate;
 class ProductoController extends Controller
 {
     public function verProductos(){
-        $productos=DB::table('productos')->paginate(4); //paginate para que a partir de 3 salga paginacion, añadir link en la página
+        $productos=Producto::all(); //paginate para que a partir de 3 salga paginacion, añadir link en la página
         $cont=0;
         $categorias=Categoria::all();
         return view('Producto.productos',['productos'=>$productos, 'categorias'=>$categorias , 'cont'=>$cont]);

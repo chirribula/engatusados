@@ -36,7 +36,7 @@ class productosSeeder extends Seeder
             'nombre' => 'CORREA PARA GATOS',
             'marca' => 'Gatitos',
             'precio' => '12.00',
-            'categoria'  => 2,
+            'categoria'  => 3,
             'stock'  => 100,
             'descripcion' => 'Correa suave para gatitos',
             'tamaño' => 'Pequeño',
@@ -58,13 +58,14 @@ class productosSeeder extends Seeder
             'nombre' => 'TIOVIVO',
             'marca' => 'Gatitos',
             'precio' => '15',
-             'categoria'  => 3,
+             'categoria'  => 2,
             'stock'  => 80,
             'descripcion' => 'Juguete para gatitos divertido',
             'tamaño' => 'Pequeño',
             'imagen'  => '1591199951tiovivo.jpg',
 
-        ),
+        )
+
     ));
     }
 }

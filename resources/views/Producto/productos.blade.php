@@ -108,13 +108,7 @@
                                      @endif
                                      <span class="text-white">{{$cont=0}}</span> <!--para que el contador se ponga a 0 otra vez-->
                                 </div>
-                                <div class="row">
-                                    <div class="col-5"></div>
-                                    <div class="col-2 ml-5 text-center ">
-                                         <div class="clearFix">{{$productos->links()}}</div>
-                                    </div>
-                                    <div class="col-5"></div>
-                                </div>
+
                                 </div>
                             </div>
                         </div>
