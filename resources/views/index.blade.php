@@ -28,7 +28,7 @@
                         a colaborar con protectoras de la zona y cuidadoras que lo necesite.
                     </p>
 
-                    <p>No lo pienses más y pon un gato en tu vida!!  <i class="fas fa-cat"></i></p>
+                    <p class="mt-5">No lo pienses más y pon un gato en tu vida!!  <i class="fas fa-cat"></i></p>
 
                 </div>
                 <div class="col-lg-1"></div>
